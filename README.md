@@ -1,6 +1,6 @@
 # Final Project
 
-Team 19: AJHA
+Team 19: AJHJ
 
 | Name | NUID | Email|
 | ---------- | ---------- | ---------- |
@@ -13,6 +13,10 @@ Team 19: AJHA
 
 We aim to create a social web-app based on matching mechanism.
 Users would be able to connect with other users and have a chat on the web-app.
+
+## Domain Model
+
+[User Login](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/Domain%20Model-Login.png)
 
 ## User Stories
 
