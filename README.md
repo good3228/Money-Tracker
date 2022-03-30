@@ -1,6 +1,6 @@
 # Final Project
 
-Team 19: AJHA
+Team 19: AJHJ
 
 | Name | NUID | Email|
 | ---------- | ---------- | ---------- |
