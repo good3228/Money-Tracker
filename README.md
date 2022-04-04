@@ -17,6 +17,7 @@ Users would be able to connect with other users and have a chat on the web-app.
 ## Domain Model
 
 [User Login](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/Domain%20Model-Login.png)
+[User Application Interface](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/Domain%20Model-User%20Application%20Interface.jpeg)
 
 ## User Stories
 
