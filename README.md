@@ -26,3 +26,4 @@ Users would be able to connect with other users and have a chat on the web-app.
 4. As a user, I can see profiles of other users can select the ones I like
 5. As a user, I can see a list of users that liked me back and delete selected ones
 6. As a user, I can select a user in the list and initiate a real time text conversation
+7. As a user, I can add any person I like to the friend list
