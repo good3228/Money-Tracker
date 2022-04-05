@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "express": "^4.17.3",
+    "http-server": "^14.1.0",
+    "mongodb": "^4.5.0",
+    "socket.io": "^4.4.1"
+  },
+  "name": "final-project-ajhj",
+  "description": "Team 19: AJHJ",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj.git"
+  },
+  "keywords": [
+    "node.js",
+    "javascript"
+  ],
+  "author": "ajhj team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj#readme"
+}
