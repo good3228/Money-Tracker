@@ -11,12 +11,13 @@ Team 19: AJHJ
 
 ## Project Description: Food Tracker
 
-We aim to create a food tracker web-app.
-The goal is to help users record and control their comsumption of nutritions.
+We aim to create a food tracker web-app.\
+The goal is to help users record and control their comsumption of nutritions.\
 Food nutritions data would be from [Open Food Facts API](https://world.openfoodfacts.org/data).
 
 ## Domain Model
-[Domain Model-Login](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/new%20Domain%20Model-Login.png) 
+[Domain Model-Login](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/new%20Domain%20Model-Login.png) \
+[Domain Model-User Application Interface](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/image.png)
 
 ## User Stories
 
