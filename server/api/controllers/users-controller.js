@@ -1,5 +1,5 @@
 import * as userService from './../services/users-service.js'
-
+import expressAsyncHandler from 'express-async-handler'
 //these are the two functions which set up the different response
 const setErrorResponse = (error, response) => {
     response.status(500);
@@ -11,20 +11,27 @@ const setSuccessResponse = (obj,response) => {
 }
 
 //get the data from request body and save to database
-export const create_new_user = async (request,response) => {
-    const {email,password,fullname} = request?.body;
-    try{
-        const email = request.body.email;
-        if(User.findOne({email: req.body.email}))
+export const create_new_user =
+    async (request,response) => {
+        const {email,password,fullname} = request?.body;
+        const userExist = await userService.searchOne({email:email});
+        if(userExist!==null)
         {
-            setErrorResponse
+            response.status(500);
+            response.send("User already exists!")
         }
-        const user = await tasksService.save(response.body);
-        setSuccessResponse(user,response)
-    }catch(error) {
-        setErrorResponse(error,response)
-    }
+        else
+        {
+            try{
+                const user = await userService.save(request.body);
+                setSuccessResponse(user,response)
+            }catch(error) {
+                setErrorResponse(error,response)
+            }
+        }
+
 }
+
 
 
 

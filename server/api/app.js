@@ -8,7 +8,7 @@ import model from './models/index.js';
 const app = express();
 
 //connect to the mongodb atlas
-mongoose.connect('mongodb+srv://AJHJ-Admin:info6150project@info6150-ajhj.o2v2p.mongodb.net/INFO6150-AJHJ?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://AJHJ-Admin:info6150project@info6150-ajhj.o2v2p.mongodb.net/ExpenseTracker');
 
 app.use(express.json())
 app.use(express.urlencoded());
