@@ -6,6 +6,8 @@ const router = express.Router();
 router.route('/signup')
     .post(usersController.create_new_user)
 
+router.route('/login')
+    .post(usersController.getUser)
 //set up the tasks/:id route and corresponding http methods
 
 export default router;

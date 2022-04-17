@@ -16,6 +16,12 @@ const Schema = new mongoose.Schema({
     }
 },{ versionKey: false });//remove the default _v property
 
+Schema.methods.toJSON = function() {
+    var obj = this.toObject();
+    delete obj.password;
+    return obj;
+}
+
 const model = mongoose.model('user',Schema,'User'); //specify the collection to insert
 
 export default model;

@@ -6,6 +6,6 @@ export const save = (newUser)=>{
     return user.save();
 }
 
-export const searchOne = (email)=> {
-    return User.findOne(email);
+export const searchOne = (userInfo)=> {
+    return User.findOne(userInfo);
 }

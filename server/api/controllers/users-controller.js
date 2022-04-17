@@ -11,14 +11,12 @@ const setSuccessResponse = (obj,response) => {
 }
 
 //get the data from request body and save to database
-export const create_new_user =
-    async (request,response) => {
+export const create_new_user = async (request,response) => {
         const {email,password,fullname} = request?.body;
         const userExist = await userService.searchOne({email:email});
         if(userExist!==null)
         {
-            response.status(500);
-            response.send("User already exists!")
+           setErrorResponse("User already exists!",response)
         }
         else
         {
@@ -29,10 +27,21 @@ export const create_new_user =
                 setErrorResponse(error,response)
             }
         }
-
 }
 
 
-
+export const getUser = async (request,response) => {
+        const {email,password} = request?.body;
+        const userValid = await userService.searchOne({email,password});
+        if(userValid===null)
+        {
+            response.status(401);
+            response.send("Username or password wrong");
+        }
+        else
+        {
+            setSuccessResponse(userValid,response);
+        }
+}
 
 
