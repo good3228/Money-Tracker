@@ -19,7 +19,7 @@ const revenueSchema = new mongoose.Schema({
         ref: "User",
         required: 'User id is required'
     }
-},{timestamp: true});//remove the default _v property
+},{timestamps: true});//remove the default _v property
 
 
 const revenue = mongoose.model('revenue',revenueSchema); //specify the collection to insert

@@ -29,3 +29,26 @@ export const fetch_userRevenue = async (request, response) => {
         setErrorResponse(error,response)
     }
 }
+
+export const update_userRevenue = async (request,response) => {
+    try{
+        const id = request.params.id;
+        const updated = {...request.body};
+        updated.id = id;
+        const updatedRevenue = await revenueService.update(updated);
+        setSuccessResponse(updatedRevenue,response)
+    }catch(error){
+        setErrorResponse(error,response)
+    }
+}
+
+export const delete_userRevenue = async (request,response) => {
+    try{
+        const id = request.params.id;
+        const revenue = await revenueService.remove(id)
+        setSuccessResponse({message:`Successfully deleted revenue ${id}`},response)
+    }catch(error){
+        setErrorResponse(error,response)
+    }
+
+}

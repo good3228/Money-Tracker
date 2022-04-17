@@ -15,6 +15,7 @@ router.route('/income')
 
 router.route('/:id')
     .get(revenueController.fetch_userRevenue)
-
+    .put(revenueController.update_userRevenue)
+    .delete(revenueController.delete_userRevenue)
 
 export default router;
