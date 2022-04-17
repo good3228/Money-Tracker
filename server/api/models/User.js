@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 //create a mongoose schema and set several properties
-const Schema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: 'email is required.'
@@ -16,12 +16,12 @@ const Schema = new mongoose.Schema({
     }
 },{ versionKey: false });//remove the default _v property
 
-Schema.methods.toJSON = function() {
+userSchema.methods.toJSON = function() {
     var obj = this.toObject();
     delete obj.password;
     return obj;
 }
 
-const model = mongoose.model('user',Schema,'User'); //specify the collection to insert
+const model = mongoose.model('user',userSchema,'User'); //specify the collection to insert
 
 export default model;

@@ -1,5 +1,4 @@
 import * as userService from './../services/users-service.js'
-import expressAsyncHandler from 'express-async-handler'
 //these are the two functions which set up the different response
 const setErrorResponse = (error, response) => {
     response.status(500);

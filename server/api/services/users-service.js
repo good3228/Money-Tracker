@@ -9,3 +9,4 @@ export const save = (newUser)=>{
 export const searchOne = (userInfo)=> {
     return User.findOne(userInfo);
 }
+

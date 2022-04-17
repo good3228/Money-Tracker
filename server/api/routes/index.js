@@ -1,5 +1,7 @@
-import usersRouter from './users-router.js'
+import Router from './router.js'
+
 
 export default (app) => {
-    app.use('/',usersRouter)
+    app.use('/',Router)
 }
+
