@@ -63,7 +63,7 @@ const Register = () => {
                 {/* Display Err */}
               {userAppErr || userServerErr ? (
                 <div>
-                  {"username exists" || "userServerErr"}
+                  {"username or email exists" || "userServerErr"}
                 </div>
               ) : null}
                 <input
