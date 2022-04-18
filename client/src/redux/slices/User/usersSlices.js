@@ -15,10 +15,11 @@ async(payload,
         payload,
         config
         );
+        console.log(data);
         return data;
     }catch(error) {
-        if(!error?.response) {
-            throw error;
+        if(error.response) {
+            console.log(error.response.data);
         }
         return rejectWithValue(error?.response?.data);
     }

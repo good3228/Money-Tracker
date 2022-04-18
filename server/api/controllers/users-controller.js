@@ -4,6 +4,10 @@ const setErrorResponse = (error, response) => {
     response.status(500);
     response.json(error);
 }
+const setClientErrorResponse = (error, response) => {
+    response.status(401);
+    response.json(error);
+}
 const setSuccessResponse = (obj,response) => {
     response.status(200);
     response.json(obj);
@@ -34,8 +38,7 @@ export const getUser = async (request,response) => {
         const userValid = await userService.searchOne({email,password});
         if(userValid===null)
         {
-            response.status(401);
-            response.send("Username or password wrong");
+            setClientErrorResponse("username or password wrong!",response);
         }
         else
         {
