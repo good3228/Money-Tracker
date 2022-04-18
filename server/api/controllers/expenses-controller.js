@@ -1,4 +1,4 @@
-import * as revenueService from './../services/revenues-service.js'
+import * as expenseService from './../services/expenses-service.js'
 
 //these are the two functions which set up the different response
 const setErrorResponse = (error, response) => {
@@ -10,43 +10,43 @@ const setSuccessResponse = (obj,response) => {
     response.json(obj);
 }
 
-export const create_revenue = async (request, response) => {
+export const create_expense = async (request, response) => {
     try{
         const payload = request.body;
-        const revenue = await revenueService.save(payload)
-        setSuccessResponse(revenue,response)
+        const expense = await expenseService.save(payload)
+        setSuccessResponse(expense,response)
     }catch(error){
         setErrorResponse(error,response)
     }
 }
 
-export const fetch_userRevenue = async (request, response) => {
+export const fetch_userExpense = async (request, response) => {
     try{
         const id = request.params.id;
-        const revenue = await revenueService.get(id);
-        setSuccessResponse(revenue,response)
+        const expense = await expenseService.get(id);
+        setSuccessResponse(expense,response)
     }catch(error){
         setErrorResponse(error,response)
     }
 }
 
-export const update_userRevenue = async (request,response) => {
+export const update_userExpense = async (request,response) => {
     try{
         const id = request.params.id;
         const updated = {...request.body};
         updated.id = id;
-        const updatedRevenue = await revenueService.update(updated);
-        setSuccessResponse(updatedRevenue,response)
+        const updatedExpense = await expenseService.update(updated);
+        setSuccessResponse(updatedExpense,response)
     }catch(error){
         setErrorResponse(error,response)
     }
 }
 
-export const delete_userRevenue = async (request,response) => {
+export const delete_userExpense = async (request,response) => {
     try{
         const id = request.params.id;
-        const revenue = await revenueService.remove(id)
-        setSuccessResponse({message:`Successfully deleted revenue ${id}`},response)
+        const expense = await expenseService.remove(id)
+        setSuccessResponse({message:`Successfully deleted expense ${id}`},response)
     }catch(error){
         setErrorResponse(error,response)
     }
