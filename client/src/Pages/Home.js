@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bg from "../img/data.svg"
-// ../img/data.svg
+import bg from "../img/data.svg";
 const Home = () => {
   return (
     <>
