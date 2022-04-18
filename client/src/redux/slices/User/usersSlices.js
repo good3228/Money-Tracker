@@ -68,6 +68,7 @@ const userSlices = createSlice({
             state.userLoading = false;
             state.userAppErr = undefined;
             state.userServerErr = undefined;
+            state.userAuth = action?.payload;
         });
         builder.addCase(loginUserAction.rejected, (state, action) => {
             state.userLoading = false;
@@ -85,6 +86,7 @@ const userSlices = createSlice({
             state.userLoading = false;
             state.userAppErr = undefined;
             state.userServerErr = undefined;
+            state.userAuth = action?.payload;
         });
         builder.addCase(registerUserAction.rejected, (state, action) => {
             state.userLoading = false;

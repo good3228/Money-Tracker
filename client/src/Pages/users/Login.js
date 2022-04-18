@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import {useFormik} from "formik";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import * as Yup from "yup";
 import {loginUserAction} from '../../redux/slices/User/usersSlices'
+import DisabledButton from "../../components/DisabledButton";
+import {useHistory} from "react-router-dom";
 
 //form validation
 
@@ -12,8 +14,13 @@ const formSchema = Yup.object({
 });
 
 const Login = () => {
+    //history
+    const history = useHistory();
     //dispatch
     const dispatch = useDispatch();
+    //  get data from store
+    const user = useSelector((state) => state?.users);
+    const {userAppErr, userServerErr, userLoading, userAuth} = user;
     //formik form
     const formik = useFormik({
         initialValues:{
@@ -25,6 +32,11 @@ const Login = () => {
         },
         validationSchema: formSchema,
     });
+    // Redirect
+    // console.log(user);
+    useEffect(() => {
+      if(userAuth) { history.push('/profile/'); }
+    },[userAuth])
   return (
     <section>
       <div>
@@ -41,11 +53,11 @@ const Login = () => {
               <span>Sign In</span>
               <h3>Login to your account</h3>
               {/* Display Err */}
-              {/* {userAppErr || userServerErr ? (
-                <div class="alert alert-danger" role="alert">
-                  {userAppErr || userServerErr}
+              {userAppErr || userServerErr ? (
+                <div>
+                  {"username or password wrong" || "userServerErr"}
                 </div>
-              ) : null} */}
+              ) : null}
               <form onSubmit={formik.handleSubmit}>
                 <input
                 value={formik.values.email}
@@ -70,11 +82,13 @@ const Login = () => {
                   {formik.touched.password && formik.errors.password}
                 </div>
                   <div>
-                    <button
+                    {userLoading ? (<DisabledButton />) : (
+                      <button
                       type="submit"
                     >
                       Login
                     </button>
+                    )}
                   </div>
               </form>
             </div>

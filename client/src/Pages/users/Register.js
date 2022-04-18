@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useFormik} from "formik";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import * as Yup from "yup";
 import { registerUserAction } from "../../redux/slices/User/usersSlices";
+import DisabledButton from "../../components/DisabledButton";
+import {useHistory} from "react-router-dom";
 
 const formSchema = Yup.object({
     email: Yup.string().required('Email is required'),
@@ -12,6 +14,11 @@ const formSchema = Yup.object({
 
 
 const Register = () => {
+    //history
+    const history = useHistory();
+      //  get data from store
+      const user = useSelector((state) => state?.users);
+      const {userAppErr, userServerErr, userLoading, userAuth} = user;
     //dispatch
     const dispatch = useDispatch();
     //formik form
@@ -26,6 +33,13 @@ const Register = () => {
         },
         validationSchema: formSchema,
     });
+
+     // Redirect
+    // console.log(user);
+    useEffect(() => {
+      if(userAuth) { history.push('/'); }
+    },[userAuth])
+
   return (
     <section>
       <div>
@@ -47,12 +61,11 @@ const Register = () => {
                   <SuccessMessage msg="Register Successfully. You will be redirected soon" />
                 )} */}
                 {/* Display Err */}
-                {/* {userServerErr || userAppErr ? (
-                  <div class="alert alert-danger" role="alert">
-                    {userServerErr}
-                    {userAppErr}
-                  </div>
-                ) : null} */}
+              {userAppErr || userServerErr ? (
+                <div>
+                  {"username exists" || "userServerErr"}
+                </div>
+              ) : null}
                 <input
                   value={formik.values.fullname}
                   onChange={formik.handleChange("fullname")}
@@ -86,11 +99,13 @@ const Register = () => {
                 <div>
                   {formik.touched.password && formik.errors.password}
                 </div>
-                  <button
-                    type="submit"
-                  >
-                    Register
-                  </button>
+                {userLoading ? (<DisabledButton />) : (
+                      <button
+                      type="submit"
+                    >
+                      Register
+                    </button>
+                    )}
               </form>
             </div>
           </div>
