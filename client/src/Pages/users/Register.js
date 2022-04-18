@@ -2,6 +2,7 @@ import React from "react";
 import {useFormik} from "formik";
 import {useDispatch} from "react-redux";
 import * as Yup from "yup";
+import { registerUserAction } from "../../redux/slices/User/usersSlices";
 
 const formSchema = Yup.object({
     email: Yup.string().required('Email is required'),
@@ -21,7 +22,7 @@ const Register = () => {
             fullname:""
         },
         onSubmit: values => {
-            console.log(values);
+            dispatch(registerUserAction(values));
         },
         validationSchema: formSchema,
     });
