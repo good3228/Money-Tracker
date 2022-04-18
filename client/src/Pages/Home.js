@@ -1,16 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import bg from "../img/data.svg";
+import bg from "../img/icon.svg";
 const Home = () => {
   return (
     <>
       <section className="position-relative pb-5">
-        <img
-          className="d-none d-lg-block position-absolute top-0 start-0 bottom-0 w-50 h-100 img-fluid "
-          style={{ objectFit: "cover" }}
-          src={bg}
-          alt=""
-        />
         <div className="position-relative">
           <div className="container">
             <div className="row pt-5">
@@ -25,8 +19,8 @@ const Home = () => {
                   </p>
                   <div className="d-flex flex-wrap">
                     <Link
-                      to="/profile"
-                      className="btn btn-primary me-2 mb-2 mb-sm-0"
+                      to="/Profile"
+                      className="btn btn-outline-success me-2 mb-2 mb-sm-0 btn-lg"
                     >
                       Track your performance
                     </Link>
@@ -73,6 +67,12 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <img
+          className="d-none d-lg-block position-absolute top-0 start-0 bottom-0 w-50 h-100 img-fluid "
+          style={{ objectFit: "cover" }}
+          src={bg}
+          alt=""
+        />
       </section>
     </>
   );
