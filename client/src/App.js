@@ -6,7 +6,7 @@ import Register from "./Pages/users/Register"
 import Navbar from "./components/Navigation/Navbar";
 import AddExpense from "./Pages/expense/AddExpense";
 import AddIncome from "./Pages/income/AddIncome";
-import Profile from "./redux/slices/User/Profile";
+import Profile from "./Pages/users/Profile";
 function App() {
   return (
     <BrowserRouter>
