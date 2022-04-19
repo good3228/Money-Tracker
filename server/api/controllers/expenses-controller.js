@@ -29,7 +29,15 @@ export const fetch_userExpense = async (request, response) => {
         setErrorResponse(error,response)
     }
 }
-
+export const fetch_expense_record = async (request, response) => {
+    try{
+        const userid = request.params.userid;
+        const record = await expenseService.getRecord(userid);
+        setSuccessResponse(record,response)
+    }catch(error){
+        setErrorResponse(error,response)
+    }
+}
 export const update_userExpense = async (request,response) => {
     try{
         const id = request.params.id;

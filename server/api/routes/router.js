@@ -27,4 +27,10 @@ router.route('/expense/:id')
     .put(expenseController.update_userExpense)
     .delete(expenseController.delete_userExpense)
 
+router.route('/userRevenue/:userid')
+    .get(revenueController.fetch_revenue_record)
+
+router.route('/userExpense/:userid')
+    .get(expenseController.fetch_expense_record)
+
 export default router;

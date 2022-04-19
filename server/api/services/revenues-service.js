@@ -6,12 +6,13 @@ export const save = (newRevenue)=>{
     return revenue.save();
 }
 
-export const searchAll = ()=> {
-    return Revenue.find();
+export const get = (revenueId) => {
+    const revenue = Revenue.findById(revenueId).exec();
+    return revenue;
 }
 
-export const get = (userid) => {
-    const revenue = Revenue.findById(userid).exec();
+export const getRecord = (userid) => {
+    const revenue = Revenue.find({user:userid}).exec();
     return revenue;
 }
 

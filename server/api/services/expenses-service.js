@@ -6,12 +6,14 @@ export const save = (newExpense)=>{
     return expense.save();
 }
 
-export const searchAll = ()=> {
-    return Expense.find();
+
+export const get = (expenseId) => {
+    const expense = Expense.findById(expenseId).exec();
+    return expense;
 }
 
-export const get = (userid) => {
-    const expense = Expense.findById(userid).exec();
+export const getRecord = (userid) => {
+    const expense = Expense.find({user:userid}).exec();
     return expense;
 }
 
