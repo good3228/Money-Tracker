@@ -1,8 +1,11 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import navigate from "../../utils/nav";
 const Profile = () => {
   const history = useHistory();
+  const users = useSelector(state => state?.users);
+  const { userLoading, userAppErr, userServerErr, userAuth } = users;
   return (
     <>
       <section className="py-5">
@@ -17,14 +20,14 @@ const Profile = () => {
               />
               <div>
                 <h6 className="fw-bold mb-0">
-                  <span>{/* {profile?.firstname} {profile?.lastname} */}</span>
+                  <span>{userAuth?.fullname}</span>
                   <span className="badge ms-2 bg-primary-light text-primary">
                     {/* {profile?.expenses?.length + profile?.income?.length}{" "} */}
-                    Records Created
+                    {/* Records Created */}
                   </span>
                 </h6>
                 {/* <p className="mb-0">{profile?.email}</p> */}
-                <p className="mb-0">Date Joined: 12-Jan-1999</p>
+                {/* <p className="mb-0">Date Joined: 12-Jan-1999</p> */}
                 <button
                   // onClick={() => navigate(history, "update-profile", profile)}
                   className="btn"
