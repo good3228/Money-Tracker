@@ -27,7 +27,7 @@ const PublicNavbar = () => {
                 </Link>
               </li>
 
-              <li class="nav-item mb-2">
+              {/* <li class="nav-item mb-2">
                 <Link
                   to="/add-expense"
                   className="btn  btn-outline-warning me-2"
@@ -42,7 +42,7 @@ const PublicNavbar = () => {
                 >
                   New Income
                 </Link>
-              </li>
+              </li> */}
             </ul>
             <form class="d-flex">
               <Link to="/login" className="btn btn-outline-secondary me-2">
