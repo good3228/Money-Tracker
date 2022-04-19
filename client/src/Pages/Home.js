@@ -14,16 +14,10 @@ const Home = () => {
                     Keep Track of Your Income & Expenses
                   </h2>
                   <p className="lead text-muted mb-5">
-                    View all your income and expenses flow from your team in one
+                    View all your income and expenses flow in one
                     dashboard
                   </p>
                   <div className="d-flex flex-wrap">
-                    <Link
-                      to="/Profile"
-                      className="btn btn-outline-success me-2 mb-2 mb-sm-0 btn-lg"
-                    >
-                      Track your performance
-                    </Link>
                   </div>
                 </div>
                 <div className="row align-items-center pt-5">

@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import navigate from "../../utils/nav";
 const Profile = () => {
   const history = useHistory();
   return (
@@ -54,13 +55,13 @@ const Profile = () => {
             /> */}
             <div className="d-flex align-items-center justify-content-center">
               <button
-                // onClick={() => navigate(history, "user-profile-expenses", "")}
+                onClick={() => navigate(history, "userExpense", "")}
                 className="btn me-4 w-100 btn-danger d-flex align-items-center justify-content-center"
               >
                 <span>View Expenses History</span>
               </button>
               <button
-                // onClick={() => navigate(history, "user-profile-income", "")}
+                onClick={() => navigate(history, "user-profile-income", "")}
                 className="btn w-100 btn-outline-success d-flex align-items-center justify-content-center"
               >
                 <span>View Income History</span>
