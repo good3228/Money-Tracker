@@ -2,6 +2,7 @@ import express from 'express';
 import * as usersController from './../controllers/users-controller.js';
 import * as revenueController from './../controllers/revenues-controller.js';
 import * as expenseController from './../controllers/expenses-controller.js';
+import * as accountStatisticController from './../controllers/account-statistic-controller.js';
 const router = express.Router();
 
 //set up the signup routes and http methods
@@ -32,5 +33,8 @@ router.route('/userRevenue/:userid')
 
 router.route('/userExpense/:userid')
     .get(expenseController.fetch_expense_record)
+
+router.route('/statistic')
+    .get(accountStatisticController.create_statistic)    
 
 export default router;
