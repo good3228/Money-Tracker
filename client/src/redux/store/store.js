@@ -4,6 +4,7 @@ import statistic from '../slices/accountStatistics/accountStatisticSlices';
 const store = configureStore({
     reducer: {
         users: usersReducer,
+        statistic
     },
 });
 

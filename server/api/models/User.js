@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: 'fullname is required.'
     }
-},{ versionKey: false });//remove the default _v property
+},{timestamps: true});
 
 userSchema.methods.toJSON = function() {
     var obj = this.toObject();

@@ -20,6 +20,7 @@ const Home = () => {
                   <div className="d-flex flex-wrap">
                   </div>
                 </div>
+                {/*
                 <div className="row align-items-center pt-5">
                   <div className="col-6 col-md-4 col-lg-3 col-xl-2 text-center mb-5">
                     <img
@@ -57,6 +58,7 @@ const Home = () => {
                     />
                   </div>
                 </div>
+                */}
               </div>
             </div>
           </div>

@@ -6,6 +6,7 @@ import Register from "./Pages/users/Register"
 import Navbar from "./components/Navigation/Navbar";
 import AddExpense from "./Pages/Expenses/AddExpense";
 import ExpenseList from "./Pages/Expenses/ExpensesList"
+import IncomeList from "./Pages/income/IncomeList"
 import AddIncome from "./Pages/income/AddIncome";
 import Profile from "./Pages/users/Profile";
 
@@ -22,7 +23,7 @@ function App() {
         <Route exact path = "/profile" component={Profile} />
         <Route exact path = "/register" component={Register} />
         <Route exact path = "/userExpense" component = {ExpenseList} />
-        <Route exact path = "/userIncome" component = {ExpenseList} />
+        <Route exact path = "/userIncome" component = {IncomeList} />
       </Switch>
     </BrowserRouter>
   );

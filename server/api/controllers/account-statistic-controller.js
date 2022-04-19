@@ -1,6 +1,6 @@
 import Revenue from './../models/Revenue.js'
 import Expense from './../models/Expense.js'
-
+import mongoose from 'mongoose';
 
 //these are the two functions which set up the different response
 const setErrorResponse = (error, response) => {
@@ -14,8 +14,11 @@ const setSuccessResponse = (obj,response) => {
 
 export const create_statistic = async (request, response) => {
     try{
+        const userid = mongoose.Types.ObjectId(request.params.userid);
         const expensesStats = await Expense.aggregate([
-        { $match: { amount: { $gte: 0 } } },
+        {
+            $match: {
+            "$and":[{amount: { $gte: 0 }} , {user: userid}]}},
     {
       $group: {
         _id: null,
@@ -30,7 +33,9 @@ export const create_statistic = async (request, response) => {
 
         const revenueStats = await Revenue.aggregate([
             //filter
-            { $match: { amount: { $gte: 0 } } },
+        {
+            $match: {
+            "$and":[{amount: { $gte: 0 }} , {user: userid}]}},
             {
               $group: {
                 _id: null, 

@@ -4,7 +4,7 @@ import axios from "axios";
 //Fetch All Exp
 export const fetchAccountStatsAction = createAsyncThunk(
     "statistic/details",
-    async (stats, { rejectWithValue, getState, dispatch }) => {
+    async (payload, { rejectWithValue, getState, dispatch }) => {
         const config = {
             headers:{
                 "Content-Type": "application/json",
@@ -13,8 +13,9 @@ export const fetchAccountStatsAction = createAsyncThunk(
       //http call
       try {
         const { data } = await axios.get("http://localhost:9000/statistic", 
-        stats,
+        payload,
         config);
+        console.log(data);
         return data;
       } catch (error) {
         if (!error.response) {
