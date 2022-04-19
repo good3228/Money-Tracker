@@ -22,6 +22,7 @@ function App() {
         <Route exact path = "/profile" component={Profile} />
         <Route exact path = "/register" component={Register} />
         <Route exact path = "/userExpense" component = {ExpenseList} />
+        <Route exact path = "/userIncome" component = {ExpenseList} />
       </Switch>
     </BrowserRouter>
   );

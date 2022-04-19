@@ -2,7 +2,7 @@ import React from "react";
 
 import {Link} from "react-router-dom"
 
-const ExpensesList = () => {
+const IncomeList = () => {
   return (
     <>
         <section className="py-6">
@@ -13,7 +13,7 @@ const ExpensesList = () => {
                 href="#"
               ></a>
               <div className="pt-8 px-8 mb-8">
-                <h6 className="mb-0 fs-3">Recent Consumption Records</h6>
+                <h6 className="mb-0 fs-3">Recent Income Records</h6>
               </div>
               <table className="table">
                 <thead>
@@ -64,4 +64,4 @@ const ExpensesList = () => {
   );
 };
 
-export default ExpensesList;
+export default IncomeList;

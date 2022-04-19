@@ -61,7 +61,7 @@ const Profile = () => {
                 <span>View Expenses History</span>
               </button>
               <button
-                onClick={() => navigate(history, "user-profile-income", "")}
+                onClick={() => navigate(history, "userIncome", "")}
                 className="btn w-100 btn-outline-success d-flex align-items-center justify-content-center"
               >
                 <span>View Income History</span>
