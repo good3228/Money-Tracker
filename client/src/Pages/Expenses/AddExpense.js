@@ -15,7 +15,6 @@ const AddExpense = () => {
   //dispatch events
   const dispatch = useDispatch();
 
-
   const formik = useFormik({
     initialValues:{
         title:"",
@@ -24,6 +23,7 @@ const AddExpense = () => {
     },
     onSubmit: values => {
         dispatch(createExpAction(values));
+        alert("New expense added");
     },
     validationSchema: formSchema,
 });
@@ -64,9 +64,9 @@ const AddExpense = () => {
                     />
                   </div>
                   {/* Err */}
-                  <div>
+                  <div className="text-danger mb-3">
                   {formik.touched.title && formik.errors.title}
-                </div>
+                  </div>
                   <div className="mb-3 input-group">
                     <input
                       value={formik.values.description}
@@ -77,8 +77,10 @@ const AddExpense = () => {
                       placeholder="Enter Description"
                     />
                   </div>
+                  <div className="text-danger mb-3">
                   {/* Err */}
                   {formik.touched.description && formik.errors.description}
+                  </div>
                   <div className="mb-3 input-group">
                     <input
                       value={formik.values.amount}
@@ -89,8 +91,10 @@ const AddExpense = () => {
                       placeholder="Enter Amount"
                     />
                   </div>
+                  <div className="text-danger mb-3">
                   {/* Err */}
                   {formik.touched.amount && formik.errors.amount}
+                  </div>
                   <button type="submit" className="btn btn-danger mb-4 w-100">
                     Record Expense
                   </button>
