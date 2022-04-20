@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { loginUserAction } from "../../redux/slices/User/usersSlices";
 import DisabledButton from "../../components/DisabledButton";
 import { useHistory } from "react-router-dom";
+import bg from '../../img/loginBg.webp';
 import "./Login.scss";
 //form validation
 
@@ -40,12 +41,10 @@ const Login = () => {
     }
   }, [userAuth]);
   return (
-    <section>
+    <section className="main">
+      <img src={bg} className="background"></img>
       <div>
         <div>
-          <div>
-            <div></div>
-          </div>
           <div className="main">
             <div>
               <p className="sign" align="center">
@@ -69,7 +68,9 @@ const Login = () => {
                   placeholder="Email"
                 />
                 {/* Err */}
-                <div>{formik.touched.email && formik.errors.email}</div>
+                <div className="text-danger mb-3 text-center">
+                  {formik.touched.email && formik.errors.email}
+                </div>
                 <input
                   value={formik.values.password}
                   onChange={formik.handleChange("password")}
@@ -79,7 +80,9 @@ const Login = () => {
                   className="pass"
                 />
                 {/* Err */}
-                <div>{formik.touched.password && formik.errors.password}</div>
+                <div className="text-danger text-center mb-3">
+                  {formik.touched.password && formik.errors.password}
+                </div>
                 <div>
                   {userLoading ? (
                     <DisabledButton />

@@ -55,6 +55,7 @@ body {
 
 form.form1 {
   padding-top: 40px;
+  margin-bottom: 30px;
 }
 
 .pass {
@@ -121,3 +122,14 @@ a {
 p.warning {
   color: red;
 }
+
+img.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.85;
+}
+
