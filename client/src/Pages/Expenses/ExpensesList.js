@@ -1,8 +1,21 @@
-import React from "react";
-
-import {Link} from "react-router-dom"
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from "react-router-dom";
+import ContentDetails from "../../components/ContentDetails";
+import { fetchAllExpAction } from "../../redux/slices/expenses/expensesSlices";
 
 const ExpensesList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllExpAction(1));
+  },[dispatch]);
+
+  //get all expenses
+
+  const allExpenses = useSelector(state => state?.expenses);
+  const{loading, appErr, serverErr, expensesList} = allExpenses;
+
+  // console.log(loading, appErr, serverErr, expensesList);
   return (
     <>
         <section className="py-6">
@@ -46,6 +59,11 @@ const ExpensesList = () => {
                   </tr>
                 </thead>
                 <tbody>
+                  {loading ? <h1>Loading</h1>: appErr || serverErr ? <div>Error</div>:
+                  expensesList?.length <= 0 ? <h1>No Expense Found</h1>: expensesList?.map(exp=>(
+                    // <div>{exp?.title}</div>
+                    <ContentDetails item = {exp} key = {exp?._id} />
+                  ))}
                 </tbody>
               </table>
             </div>
