@@ -12,17 +12,17 @@ const setSuccessResponse = (obj,response) => {
 }
 
 export const create_expense = async (request, response) => {
-    const {title, description, amount} = request.body;
-
+    // const {title, description, amount} = request.body;
+    // console.log(request);
     try{
-        const expense = await Expense.create({
-            title,
-            description,
-            amount,
-            user: request?.user?._id
-        })
-        // const payload = request.body;
-        // const expense = await expenseService.save(payload)
+        // const expense = await Expense.create({
+        //     title,
+        //     description,
+        //     amount,
+        //     user: request?.user?._id
+        // })
+        const payload = request.body;
+        const expense = await expenseService.save(payload)
         setSuccessResponse(expense,response)
     }catch(error){
         setErrorResponse(error,response)

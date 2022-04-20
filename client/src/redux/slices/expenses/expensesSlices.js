@@ -15,11 +15,15 @@ async(payload,
         },
     };
     try {
-        const { data } = await axios.post("http://localhost:9000/expense/" + user_id, 
-        payload,
+        const { data } = await axios.post("http://localhost:9000/expense", 
+        {
+            title: payload.title,
+            description: payload.description,
+            amount: payload.amount,
+            user: user_id
+        },
         config
         );
-        // console.log(data);
         return data;
     }catch(error) {
         if(!error?.response) {
