@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import bg from "../img/icon.svg";
 const Home = () => {
-  return (
+  return ( 
     <>
       <section className="position-relative pb-5">
         <div className="position-relative">
