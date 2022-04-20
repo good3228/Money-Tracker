@@ -1,7 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
 import axios from "axios";
-// import localURL from "../../../utils/localURL";
-//Login action
 
 export const loginUserAction = createAsyncThunk("login", 
 async(payload, 
@@ -54,20 +52,6 @@ async(payload,
 );
 
 
-//Logout action
-export const logoutAction = createAsyncThunk(
-  "/user/logout",
-  async (payload, { rejectWithValue, getState, dispatch }) => {
-    try {
-      localStorage.removeItem("userInfo");
-    } catch (error) {
-      if (!error?.response) {
-        throw error;
-      }
-      return rejectWithValue(error?.response?.data);
-    }
-  }
-);
 
 //slices
 

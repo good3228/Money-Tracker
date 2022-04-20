@@ -6,6 +6,7 @@ const store = configureStore({
     reducer: {
         users: usersReducer,
         expenses:expensesSlices,
+        statistic,
     },
 });
 

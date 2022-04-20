@@ -2,13 +2,14 @@ import React,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import navigate from "../../utils/nav";
-import fetchAccountStatsAction from "../../redux/slices/accountStatistics/accountStatisticSlices"
+import AccountSum from './accountSum'
+
+
 const Profile = () => {
   const history = useHistory();
-  const users = useSelector(state => state?.users);
-  const { userLoading, userAppErr, userServerErr, userAuth } = users;
-  const dispatch = useDispatch();
 
+  const users = useSelector((state) => state?.users);
+  const { userLoading, userAppErr, userServerErr, userAuth } = users;
 
 
   return (
@@ -31,8 +32,6 @@ const Profile = () => {
                     {/* Records Created */}
                   </span>
                 </h6>
-                {/* <p className="mb-0">{profile?.email}</p> */}
-                {/* <p className="mb-0">Date Joined: 12-Jan-1999</p> */}
                 <span className="badge ms-2 bg-primary-light text-primary">
                     JOINED DATE: {userAuth?.createdAt}
                 </span><br />
@@ -64,6 +63,7 @@ const Profile = () => {
               minInc={incResult?.min}
               maxInc={incResult?.max}
             /> */}
+            <AccountSum></AccountSum>
             <div className="d-flex align-items-center justify-content-center">
               <button
                 onClick={() => navigate(history, "userExpense", "")}

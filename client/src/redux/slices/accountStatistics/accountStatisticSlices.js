@@ -3,8 +3,9 @@ import axios from "axios";
 
 //Fetch All Exp
 export const fetchAccountStatsAction = createAsyncThunk(
-    "statistic/details",
+    "profile/statistic",
     async (payload, { rejectWithValue, getState, dispatch }) => {
+        const user_id = getState()?.users?.userAuth?._id;
         const config = {
             headers:{
                 "Content-Type": "application/json",
@@ -12,7 +13,7 @@ export const fetchAccountStatsAction = createAsyncThunk(
         };
       //http call
       try {
-        const { data } = await axios.get("http://localhost:9000/statistic", 
+        const { data } = await axios.get(`http:\/\/localhost:9000/statistic/${user_id}`,
         payload,
         config);
         console.log(data);
@@ -28,24 +29,21 @@ export const fetchAccountStatsAction = createAsyncThunk(
 
 
   const incomeSlices = createSlice({
-    name: "statistics",
+    name: "profile",
     initialState: {},
     extraReducers: builder => {
       //fetch all
       builder.addCase(fetchAccountStatsAction.pending, (state, action) => {
-        state.statsLoading = true;
-        state.appErr = undefined;
-        state.serverErr = undefined;
+        state.loading = true;
       });
       builder.addCase(fetchAccountStatsAction.fulfilled, (state, action) => {
-        state.statsLoading = false;
-        state.stats = action?.payload;
+        state.loading = false;
+        state.accountDetails = action?.payload;
         state.appErr = undefined;
         state.serverErr = undefined;
-        state.isIncomeCreated = false;
       });
       builder.addCase(fetchAccountStatsAction.rejected, (state, action) => {
-        state.statsLoading = false;
+        state.loading = false;
         state.appErr = action?.payload?.message;
         state.serverErr = action?.error?.message;
       });

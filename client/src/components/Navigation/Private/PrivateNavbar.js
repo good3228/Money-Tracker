@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { logoutAction } from "../../../redux/slices/User/usersSlices";
+import {useHistory} from "react-router-dom";
 
 const PrivateNavbar = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
+
   return (
     <>
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -39,7 +41,7 @@ const PrivateNavbar = () => {
                 New Income
               </Link>
               <button
-                onClick={() => dispatch(logoutAction())}
+                onClick={() => history.push('/')}
                 className="btn btn-warning me-2"
               >
                 Logout
