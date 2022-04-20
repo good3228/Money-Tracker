@@ -71,7 +71,7 @@ const AccountSum = ()=> {
                             ></span>
 
                             {/* Income Start */}
-                            <span class="badge fs-2 bg-primary-light text-primary">
+                            <span class="badge fs-2 bg-light text-primary">
                               Total Income
                             </span>
                           </div>
