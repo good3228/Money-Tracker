@@ -43,26 +43,9 @@ const Profile = () => {
                   <i class="bi bi-pen fs-3 m-3 text-primary"></i>
                 </button>
               </div>
-              {/* <DataGraph
-                income={incResult?.sumTotal}
-                expenses={expResult?.sumTotal}
-              /> */}
             </div>
 
             <p className="mb-8"> </p>
-
-            {/* <UserProfileStats
-              numOfTransExp={profile?.expenses?.length}
-              avgExp={expResult?.avg}
-              totalExp={expResult?.sumTotal}
-              minExp={expResult?.min}
-              maxExp={expResult?.max}
-              numOfTransInc={profile?.income?.length}
-              avgInc={incResult?.avg}
-              totalInc={incResult?.sumTotal}
-              minInc={incResult?.min}
-              maxInc={incResult?.max}
-            /> */}
             <AccountSum></AccountSum>
             <div className="d-flex align-items-center justify-content-center">
               <button

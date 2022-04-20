@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {fetchAccountStatsAction} from "../../redux/slices/accountStatistics/accountStatisticSlices"
 import DisabledButton from "../../components/DisabledButton";
 import {useHistory} from "react-router-dom";
+import Graph from "../../components/pieChart"
 
 //dispatch
 const AccountSum = ()=> {
@@ -16,6 +17,8 @@ const AccountSum = ()=> {
 
    const {accountDetails,appErr,loading,serverErr} = statistic;
   return (
+                <>
+                <Graph revenue= {accountDetails?.revenueStats[0]?.totalRev} expenses={accountDetails?.expensesStats[0]?.totalExp} />
                 <div class="row">
                       <div class="col-12 col-md-6 mb-6">
                         <div class="p-8 border rounded-2">
@@ -104,6 +107,7 @@ const AccountSum = ()=> {
                         </div>
                       </div>
                     </div>
+                    </>
 
   )
 }
