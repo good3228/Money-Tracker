@@ -16,7 +16,7 @@ const AccountSum = ()=> {
   const statistic = useSelector(state=>state.statistic)
 
    const {accountDetails,appErr,loading,serverErr} = statistic;
-   console.log(accountDetails,appErr,loading,serverErr);
+
   return (
                 <>
                 <Graph revenue= {accountDetails?.revenueStats[0]?.totalRev} expenses={accountDetails?.expensesStats[0]?.totalExp} />
@@ -30,35 +30,36 @@ const AccountSum = ()=> {
                             ></span>
                             {/* Expenses Start */}
                             <span class="badge fs-2 bg-light text-danger">
-                              Total Expenses
+                              Total Expenses:
                             </span>
                           </div>
-                          {<h1 class="mb-4">{accountDetails?.expensesStats[0]?.totalExp}</h1>}
+                          {!appErr&&!serverErr ?(<h1 class="mb-4">{accountDetails?.expensesStats[0]?.totalExp}</h1>):<h1 class="mb-4">0</h1>}
+
                           <p class="mb-0">
-                            <span>Number of Transactions</span>
+                            <span>Number of Transactions:</span>
                             <span class="text-danger ms-1">
-                              <span>{accountDetails?.expensesStats[0]?.totalRecords}</span>
+                              {!appErr&&!serverErr ?(<span>{accountDetails?.expensesStats[0]?.totalRecords}</span>):<span>0</span>}
                             </span>
                           </p>
 
                           <p class="mb-0">
-                            <span>Minimum Transactions</span>
+                            <span>Minimum Transactions:</span>
                             <span class="text-danger ms-1">
-                              <span>{accountDetails?.expensesStats[0]?.minExp}</span>
+                              {!appErr&&!serverErr ?(<span>{accountDetails?.expensesStats[0]?.minExp}</span>):<span>0</span>}
                             </span>
                           </p>
 
                           <p class="mb-0">
-                            <span>Maximum Transactions</span>
+                            <span>Maximum Transactions:</span>
                             <span class="text-danger ms-1">
-                              <span>{accountDetails?.expensesStats[0]?.maxExp}</span>
+                              {!appErr&&!serverErr ?(<span>{accountDetails?.expensesStats[0]?.maxExp}</span>):<span>0</span>}
                             </span>
                           </p>
 
                           <p class="mb-0">
-                            <span>Average Transactions</span>
+                            <span>Average Transactions:</span>
                             <span class="text-danger ms-1">
-                              <span>{accountDetails?.expensesStats[0]?.averageExp}</span>
+                              {!appErr&&!serverErr ?(<span>{accountDetails?.expensesStats[0]?.averageExp}</span>):<span>0</span>}
                             </span>
                           </p>
                         </div>
@@ -73,37 +74,29 @@ const AccountSum = ()=> {
 
                             {/* Income Start */}
                             <span class="badge fs-2 bg-primary-light text-primary">
-                              Total Income
+                              Total Income:
                             </span>
                           </div>
-                          <h1 class="mb-4">{accountDetails?.revenueStats[0]?.totalRev}</h1>
+                          {!appErr&&!serverErr ?(<h1 class="mb-4">{accountDetails?.revenueStats[0]?.totalRev}</h1>):<h1 class="mb-4">0</h1>}
 
                           <p class="mb-0">
-                            <span>Number of Transactions</span>
-                            <span class="text-danger ms-1">
-                            {accountDetails?.revenueStats[0]?.totalRecords}
-                            </span>
+                            <span>Number of Transactions:</span>
+                            {!appErr&&!serverErr ?(<span class="text-danger ms-1">{accountDetails?.revenueStats[0]?.totalRecords}</span>):<span class="text-danger ms-1">0</span>}
                           </p>
 
                           <p class="mb-0">
-                            <span>Minimum Transactions</span>
-                            <span class="text-danger ms-1">
-                            {accountDetails?.revenueStats[0]?.minRev}
-                            </span>
+                            <span>Minimum Transactions:</span>
+                            {!appErr&&!serverErr ?(<span class="text-danger ms-1">{accountDetails?.revenueStats[0]?.minRev}</span>):<span class="text-danger ms-1">0</span>}
                           </p>
 
                           <p class="mb-0">
-                            <span>Maximum Transactions</span>
-                            <span class="text-danger ms-1">
-                            {accountDetails?.revenueStats[0]?.maxRev}
-                            </span>
+                            <span>Maximum Transactions:</span>
+                            {!appErr&&!serverErr ?(<span class="text-danger ms-1">{accountDetails?.revenueStats[0]?.maxRev}</span>):<span class="text-danger ms-1">0</span>}
                           </p>
 
                           <p class="mb-0">
-                            <span>Average Transactions</span>
-                            <span class="text-danger ms-1">
-                            {accountDetails?.revenueStats[0]?.averageRev}
-                            </span>
+                            <span>Average Transactions:</span>
+                            {!appErr&&!serverErr ?(<span class="text-danger ms-1">{accountDetails?.revenueStats[0]?.averageRev}</span>):<span class="text-danger ms-1">0</span>}
                           </p>
                         </div>
                       </div>
