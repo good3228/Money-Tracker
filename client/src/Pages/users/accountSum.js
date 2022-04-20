@@ -16,6 +16,7 @@ const AccountSum = ()=> {
   const statistic = useSelector(state=>state.statistic)
 
    const {accountDetails,appErr,loading,serverErr} = statistic;
+   console.log(accountDetails,appErr,loading,serverErr);
   return (
                 <>
                 <Graph revenue= {accountDetails?.revenueStats[0]?.totalRev} expenses={accountDetails?.expensesStats[0]?.totalExp} />
