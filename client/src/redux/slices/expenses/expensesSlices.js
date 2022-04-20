@@ -90,17 +90,17 @@ const expenseSlices = createSlice({
     builder.addCase(fetchAllExpAction.pending, (state, action) => {
       state.loading = true;
     });
-  builder.addCase(fetchAllExpAction.fulfilled, (state, action) => {
-    state.loading = false;
-    state.expensesList = action?.payload;
-    state.appErr = undefined;
-    state.serverErr = undefined;
+    builder.addCase(fetchAllExpAction.fulfilled, (state, action) => {
+        state.loading = false;
+        state.expensesList = action?.payload;
+        state.appErr = undefined;
+        state.serverErr = undefined;
     });
-  builder.addCase(fetchAllExpAction.rejected, (state, action) => {
-    state.loading = false;
-    state.expensesList = action?.payload;
-    state.appErr = undefined;
-    state.serverErr = undefined;
+    builder.addCase(fetchAllExpAction.rejected, (state, action) => {
+        state.loading = false;
+        state.expensesList = action?.payload;
+        state.appErr = undefined;
+        state.serverErr = undefined;
     });
   },
 });

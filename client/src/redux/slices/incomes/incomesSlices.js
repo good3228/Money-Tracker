@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 //
-export const createIncAction = createAsyncThunk("income/create", ///// HERE
+export const createIncAction = createAsyncThunk("income/create", /////
 async(payload, 
 {rejectWithValue, getState, dispatch})=> {
 
@@ -36,7 +36,7 @@ async(payload,
 );
 
 //  fetch all action
-export const fetchAllIncAction = createAsyncThunk("income/fetchAll", ///// HERE
+export const fetchAllIncAction = createAsyncThunk("income/fetchAll", /////
 async(payload, 
 {rejectWithValue, getState, dispatch})=> {
 
@@ -75,32 +75,32 @@ const incomeSlices = createSlice({
     });
     builder.addCase(createIncAction.fulfilled, (state, action) => {
       state.loading = false;
-      state.expenseCreated = action?.payload;
+      state.incomeCreated = action?.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
     builder.addCase(createIncAction.rejected, (state, action) => {
       state.loading = false;
-      state.expenseCreated = action?.payload;
+      state.incomeCreated = action?.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
 
-    //  fetch all Expenses
+    //  fetch all Incomes
     builder.addCase(fetchAllIncAction.pending, (state, action) => {
       state.loading = true;
     });
-  builder.addCase(fetchAllIncAction.fulfilled, (state, action) => {
-    state.loading = false;
-    state.expensesList = action?.payload;
-    state.appErr = undefined;
-    state.serverErr = undefined;
+    builder.addCase(fetchAllIncAction.fulfilled, (state, action) => {
+        state.loading = false;
+        state.incomesList = action?.payload;
+        state.appErr = undefined;
+        state.serverErr = undefined;
     });
-  builder.addCase(fetchAllIncAction.rejected, (state, action) => {
-    state.loading = false;
-    state.expensesList = action?.payload;
-    state.appErr = undefined;
-    state.serverErr = undefined;
+    builder.addCase(fetchAllIncAction.rejected, (state, action) => {
+        state.loading = false;
+        state.incomesList = action?.payload;
+        state.appErr = undefined;
+        state.serverErr = undefined;
     });
   },
 });

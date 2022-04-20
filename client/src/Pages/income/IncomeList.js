@@ -1,8 +1,21 @@
-import React from "react";
-
-import {Link} from "react-router-dom"
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from "react-router-dom";
+import ContentDetails from "../../components/ContentDetails";
+import { fetchAllIncAction } from "../../redux/slices/incomes/incomesSlices";
 
 const IncomeList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllIncAction(1));
+  },[dispatch]);
+
+  //get all incomes
+
+  const allIncomes = useSelector(state => state?.revenue);
+  const{loading, appErr, serverErr, incomesList} = allIncomes;
+
+
   return (
     <>
         <section className="py-6">
@@ -46,6 +59,10 @@ const IncomeList = () => {
                   </tr>
                 </thead>
                 <tbody>
+                  {loading ? <h1>Loading</h1>: appErr || serverErr ? <div>Error</div>:
+                    incomesList?.length <= 0 ? <h1>No Income Found</h1>: incomesList?.map(inc=>(
+                      <ContentDetails item = {inc} key = {inc?._id} />
+                    ))}
                 </tbody>
               </table>
             </div>
