@@ -16,7 +16,6 @@ export const fetchAccountStatsAction = createAsyncThunk(
         const { data } = await axios.get(`http:\/\/localhost:9000/statistic/${user_id}`,
         payload,
         config);
-        console.log(data);
         return data;
       } catch (error) {
         if (!error.response) {

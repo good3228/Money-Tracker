@@ -12,10 +12,9 @@ const AccountSum = ()=> {
     dispatch(fetchAccountStatsAction())
   },[dispatch]);
 
-/*
-  const account = useSelector(state=>state.account);
-  const {loading,accountDetail,appErr,serverErr} = account;*/
+  const statistic = useSelector(state=>state.statistic)
 
+   const {accountDetails,appErr,loading,serverErr} = statistic;
   return (
                 <div class="row">
                       <div class="col-12 col-md-6 mb-6">
@@ -30,32 +29,32 @@ const AccountSum = ()=> {
                               Total Expenses
                             </span>
                           </div>
-                          <h1 class="mb-4"></h1>
+                          {<h1 class="mb-4">{accountDetails?.expensesStats[0]?.totalExp}</h1>}
                           <p class="mb-0">
                             <span>Number of Transactions</span>
                             <span class="text-danger ms-1">
-                              <span></span>
+                              <span>{accountDetails?.expensesStats[0]?.totalRecords}</span>
                             </span>
                           </p>
 
                           <p class="mb-0">
                             <span>Minimum Transactions</span>
                             <span class="text-danger ms-1">
-                              <span></span>
+                              <span>{accountDetails?.expensesStats[0]?.minExp}</span>
                             </span>
                           </p>
 
                           <p class="mb-0">
                             <span>Maximum Transactions</span>
                             <span class="text-danger ms-1">
-                              <span></span>
+                              <span>{accountDetails?.expensesStats[0]?.maxExp}</span>
                             </span>
                           </p>
 
                           <p class="mb-0">
                             <span>Average Transactions</span>
                             <span class="text-danger ms-1">
-                              <span></span>
+                              <span>{accountDetails?.expensesStats[0]?.averageExp}</span>
                             </span>
                           </p>
                         </div>
@@ -73,33 +72,33 @@ const AccountSum = ()=> {
                               Total Income
                             </span>
                           </div>
-                          <h1 class="mb-4"></h1>
+                          <h1 class="mb-4">{accountDetails?.revenueStats[0]?.totalRev}</h1>
 
                           <p class="mb-0">
                             <span>Number of Transactions</span>
                             <span class="text-danger ms-1">
-
+                            {accountDetails?.revenueStats[0]?.totalRecords}
                             </span>
                           </p>
 
                           <p class="mb-0">
                             <span>Minimum Transactions</span>
                             <span class="text-danger ms-1">
-
+                            {accountDetails?.revenueStats[0]?.minRev}
                             </span>
                           </p>
 
                           <p class="mb-0">
                             <span>Maximum Transactions</span>
                             <span class="text-danger ms-1">
-
+                            {accountDetails?.revenueStats[0]?.maxRev}
                             </span>
                           </p>
 
                           <p class="mb-0">
                             <span>Average Transactions</span>
                             <span class="text-danger ms-1">
-
+                            {accountDetails?.revenueStats[0]?.averageRev}
                             </span>
                           </p>
                         </div>

@@ -9,7 +9,6 @@ import ExpenseList from "./Pages/Expenses/ExpensesList"
 import IncomeList from "./Pages/income/IncomeList"
 import AddIncome from "./Pages/income/AddIncome";
 import Profile from "./Pages/users/Profile";
-import accountSum from "./Pages/users/accountSum"
 
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
         <Route exact path = "/add-income" component={AddIncome} />
         <Route exact path = "/add-expense" component={AddExpense} />
         <Route exact path = "/profile" component={Profile} />
-        <Route exact path = "/profile" component={accountSum} />
         <Route exact path = "/register" component={Register} />
         <Route exact path = "/userExpense" component = {ExpenseList} />
         <Route exact path = "/userIncome" component = {IncomeList} />
