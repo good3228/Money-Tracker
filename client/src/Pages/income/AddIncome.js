@@ -35,7 +35,6 @@ const AddIncome = () => {
       <div className="AddIncome">
         <img src={addIncomeImg} className="addIncomeBg"></img>
         <form onSubmit={formik.handleSubmit}>
-          
           <div class="segment">
             <h1>Add Income</h1>
           </div>
@@ -49,7 +48,7 @@ const AddIncome = () => {
               placeholder="Enter Title"
             />
           </label>
-          <div className="text-danger mb-3">
+          <div className="text-light mb-3">
             {formik.touched.title && formik.errors.title}
           </div>
           <label>
@@ -62,7 +61,7 @@ const AddIncome = () => {
               placeholder="Enter Description"
             />
           </label>
-          <div className="text-danger mb-3">
+          <div className="text-light mb-3">
             {/* Err */}
             {formik.touched.description && formik.errors.description}
           </div>
@@ -76,14 +75,14 @@ const AddIncome = () => {
               placeholder="Enter Amount"
             />
           </label>
-          <div className="text-danger mb-3">
+          <div className="text-light mb-3">
             {formik.touched.amount && formik.errors.amount}
           </div>
-          <button class="btnAddIncome" type="button">
-            <i class="icon ion-md-lock"></i> Add Income
+          <button class="btnAddIncome" type="submit">
+            Add Income
           </button>
 
-          <div class="segment">
+          {/* <div class="segment">
             <button class="unit" type="button">
               <i class="icon ion-md-arrow-back"></i>
             </button>
@@ -93,7 +92,7 @@ const AddIncome = () => {
             <button class="unit" type="button">
               <i class="icon ion-md-settings"></i>
             </button>
-          </div>
+          </div> */}
         </form>
       </div>
     </>

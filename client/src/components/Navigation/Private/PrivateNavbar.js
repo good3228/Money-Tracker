@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {useHistory} from "react-router-dom";
+import './PrivateNavbar.scss';
 
 const PrivateNavbar = () => {
   const history = useHistory();
@@ -34,14 +35,14 @@ const PrivateNavbar = () => {
               </li>
             </ul>
             <form class="d-flex">
-              <Link to="/add-expense" className="btn btn-danger me-2">
+              <Link to="/add-expense" className="btn btn-danger newExpense me-2">
                 New Expense
               </Link>
-              <Link to="/add-income" className="btn btn-success me-2">
+              <Link to="/add-income" className="btn btn-primary newIncome me-2">
                 New Income
               </Link>
               <button
-                onClick={() => history.push('/')}
+                onClick={() => history.push("/")}
                 className="btn btn-warning me-2"
               >
                 Logout

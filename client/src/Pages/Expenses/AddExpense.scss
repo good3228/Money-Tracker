@@ -1,20 +1,22 @@
 $ruler: 16px;
 $color-red: #ae1100;
 $color-bg: #e8e9ef;
-$color-shadow: #06066d;
+$color-shadow: #ab1403;
 $color-white: #fff;
 
 
 
 .addIncomeBg{
+    height: 400px;
+    width: 400px;
     position: absolute;
     right:30px;
-    bottom: 300px;
+    top: 100px;
 }
-.AddIncome {
+.AddExpense {
     height: 100vh;
   padding-top: 100px;
-  background: linear-gradient(to right,#bed1f6, rgb(23, 61, 230));
+  background: linear-gradient(to right,#f4bcb8, rgb(197, 39, 18));
   display: flex;
   justify-content: center;
   img{
@@ -84,7 +86,7 @@ $color-white: #fff;
   button {
     color: #61677c;
     font-weight: bold;
-    box-shadow: -3px -5px 20px rgba(15, 15, 181, 0.244), 5px 5px 20px $color-shadow;
+    box-shadow: -3px -5px 20px rgba(213, 30, 17, 0.244), 5px 5px 20px $color-shadow;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-weight: 600;
@@ -117,6 +119,7 @@ $color-white: #fff;
         margin-right: 0;
       }
     }
+
 
   }
   button.btnAddIncome {

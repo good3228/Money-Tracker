@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import navigate from "../../utils/nav";
 import AccountSum from './accountSum'
-
-
+import './Profile.scss';
 const Profile = () => {
   const history = useHistory();
 
@@ -16,8 +15,8 @@ const Profile = () => {
     <>
       <section className="py-5">
         <div className="container">
-          <div className="position-relative p-8 border rounded-2">
-            <div className="d-flex mb-6 align-items-center">
+          <div className="position-relative p-8  rounded-2">
+            <div className="d-flex mb-6 align-items-center info">
               <img
                 className="img-fluid me-4 rounded-2"
                 src="https://27jts3o00yy49vo2y30wem91-wpengine.netdna-ssl.com/wp-content/uploads/2018/05/ASSET-USER-ADMIN-300x300.png"
@@ -25,23 +24,25 @@ const Profile = () => {
               />
               <div>
                 <h6 className="fw-bold mb-0">
-                  <span>{userAuth?.fullname}</span>
-                  <span className="badge ms-2 bg-primary-light text-primary">
-                    {userAuth?.email}<br/>
+                  <div className="name">{userAuth?.fullname}</div>
+                  <div className="badge ms-2 bg-primary-light text-primary email">
+                    {userAuth?.email}
+                    <br />
                     {/* {profile?.expenses?.length + profile?.income?.length}{" "} */}
                     {/* Records Created */}
-                  </span>
+                  </div>
                 </h6>
-                <span className="badge ms-2 bg-primary-light text-primary">
-                    JOINED DATE: {userAuth?.createdAt}
-                </span><br />
-                <button
+                <div className="badge ms-2 bg-primary-light text-primary joinDate">
+                  JOINED DATE: {userAuth?.createdAt}
+                </div>
+                <br />
+                {/* <button
                   // onClick={() => navigate(history, "update-profile", profile)}
                   className="btn"
                 >
                   Edit Profile
                   <i class="bi bi-pen fs-3 m-3 text-primary"></i>
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -50,13 +51,13 @@ const Profile = () => {
             <div className="d-flex align-items-center justify-content-center">
               <button
                 onClick={() => navigate(history, "userExpense", "")}
-                className="btn me-4 w-100 btn-danger d-flex align-items-center justify-content-center"
+                className="btn me-4 w-100 btn-outline-danger d-flex align-items-center justify-content-center"
               >
                 <span>View Expenses History</span>
               </button>
               <button
                 onClick={() => navigate(history, "userIncome", "")}
-                className="btn w-100 btn-outline-success d-flex align-items-center justify-content-center"
+                className="btn w-100 btn-outline-primary d-flex align-items-center justify-content-center"
               >
                 <span>View Income History</span>
               </button>
