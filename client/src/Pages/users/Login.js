@@ -41,7 +41,7 @@ const Login = () => {
     }
   }, [userAuth]);
   return (
-    <section className="main">
+    <section className="main register">
       <img src={bg} className="background"></img>
       <div>
         <div>
