@@ -35,6 +35,36 @@ async(payload,
 }
 );
 
+export const updateExpAction = createAsyncThunk("expense/update", 
+async(payload, 
+{rejectWithValue, getState, dispatch})=> {
+
+    // const payload_id = payload?._id;
+    const config = {
+        headers:{
+            "Content-Type": "application/json",
+        },
+    };
+    try {
+        const { data } = await axios.put(`http:\/\/localhost:9000/expense/${payload?.id}`, 
+        {
+            title: payload.title,
+            description: payload.description,
+            amount: payload.amount,
+        },
+        config
+        );
+        // console.log(data);
+        return data;
+    }catch(error) {
+        if(!error?.response) {
+            throw error;
+        }
+        return rejectWithValue(error?.response?.data);
+    }
+}
+);
+
 //  fetch all action
 export const fetchAllExpAction = createAsyncThunk("expense/fetchAll", 
 async(payload, 
@@ -102,6 +132,24 @@ const expenseSlices = createSlice({
         state.appErr = undefined;
         state.serverErr = undefined;
     });
+
+
+    //  update Expense
+    builder.addCase(updateExpAction.pending, (state, action) => {
+        state.loading = true;
+      });
+      builder.addCase(updateExpAction.fulfilled, (state, action) => {
+          state.loading = false;
+          state.expensesUpdated = action?.payload;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+      });
+      builder.addCase(updateExpAction.rejected, (state, action) => {
+          state.loading = false;
+          state.expensesUpdated = action?.payload;
+          state.appErr = action?.payload?.message;
+          state.serverErr = action?.error?.message;
+      });
   },
 });
 

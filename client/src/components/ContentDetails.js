@@ -1,6 +1,9 @@
 import React from "react";
+import { useHistory} from 'react-router-dom';
+import dateFormatter from "../utils/dateFormatter";
 
 const ContentDetails = ({item}) => {
+  const history = useHistory();
   return (
     <>
       <tr className="align-middle text-dark">
@@ -10,11 +13,17 @@ const ContentDetails = ({item}) => {
 
         <td className="p-6">{item?.description}</td>
         <td className="p-6">{item?.amount}</td>
-        <td className="p-6">{item?.createdAt}</td>
+        <td className="p-6">{dateFormatter(item?.updatedAt? (item?.updatedAt) : (item?.createdAt))}</td>
         <td className="p-6">
         </td>
         <td className="p-6">
           <button
+            onClick={() => history.push({
+              pathname:`/edit-expense/`,
+              state:{
+                expense: item,
+              }
+            })}
             className="badge bg-success-light text-success"
           >
             <svg
