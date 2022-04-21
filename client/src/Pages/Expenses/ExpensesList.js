@@ -62,7 +62,7 @@ const ExpensesList = () => {
                   {loading ? <h1>Loading</h1>: appErr || serverErr ? <div>Error</div>:
                   expensesList?.length <= 0 ? <h1>No Expense Found</h1>: expensesList?.map(exp=>(
                     // <div>{exp?.title}</div>
-                    <ContentDetails item = {exp} key = {exp?._id} />
+                    <ContentDetails item = {exp} key = {exp?._id} /> 
                   ))}
                 </tbody>
               </table>

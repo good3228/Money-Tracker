@@ -3,11 +3,17 @@ import moneySVG from "../../img/money.svg";
 import {useFormik} from "formik";
 import{ useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { updateExpAction } from "../../redux/slices/expenses/expensesSlices";
+import { deleteExpAction, updateExpAction } from "../../redux/slices/expenses/expensesSlices";
 import DisabledButton from "../../components/DisabledButton";
 
 
 const formSchema = Yup.object({
+  title: Yup.string().required('title is required '),
+  description: Yup.string().required('description is required'),
+  amount: Yup.number().required('amount is required'),
+});
+
+const formSchema2 = Yup.object({
   title: Yup.string().required('title is required '),
   description: Yup.string().required('description is required'),
   amount: Yup.number().required('amount is required'),
@@ -37,6 +43,24 @@ const EditExpense = ({location: {
     },
     validationSchema: formSchema,
   }); 
+
+  const formik2 = useFormik({
+    initialValues:{
+        title: expense?.title,
+        description: expense?.description,
+        amount: expense?.amount
+      },
+    onSubmit: values => {
+      const data = {
+        ...values,
+        id: expense?._id,
+      };
+      dispatch(deleteExpAction(data));
+      alert("Expense deleted!");
+    },
+    validationSchema: formSchema2,
+  }); 
+
 
   //get data form store
   const expenseData = useSelector(state => state.expenses);
@@ -108,6 +132,11 @@ const EditExpense = ({location: {
                   Update
                 </button>
                 )}
+              </form>
+              <form onSubmit={formik2.handleSubmit}>
+                <button type="submit" className="btn btn-primary mb-4 w-100">
+                  Delete
+                </button>
               </form>
             </div>
           </div>
