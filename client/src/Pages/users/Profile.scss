@@ -11,3 +11,13 @@ section.py-5{
         font-size:1.2rem;
     }
 }
+
+    img.profileBg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 110vh;
+        width: 100vw;
+        opacity: 1;
+    }

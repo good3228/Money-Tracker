@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import navigate from "../../utils/nav";
 import AccountSum from './accountSum'
+import bg from '../../img/profileBg.jpg';
 import './Profile.scss';
 const Profile = () => {
   const history = useHistory();
@@ -14,6 +15,7 @@ const Profile = () => {
   return (
     <>
       <section className="py-5">
+        <img src={bg} className="profileBg"></img>
         <div className="container">
           <div className="position-relative p-8  rounded-2">
             <div className="d-flex mb-6 align-items-center info">
