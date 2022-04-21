@@ -34,7 +34,7 @@ const AccountSum = () => {
                 style={{ width: "40px", height: "40px" }}
               ></span>
               {/* Expenses Start */}
-              <span className="badge fs-2 bg-light text-danger">
+              <span className="badge fs-2 text-danger">
                 Total Expenses:
               </span>
             </div>
