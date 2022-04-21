@@ -6,7 +6,7 @@ import moneySVG from "../../img/money.svg";
 import { createExpAction } from "../../redux/slices/expenses/expensesSlices";
 import './AddExpense.scss';
 import addIncomeImg from "../../img/logo.png";
-import bg from "../../img/addExpenseBg.webp";
+import bg from "../../img/addExpenseBg.jpeg";
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required'),
