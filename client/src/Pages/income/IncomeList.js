@@ -1,21 +1,20 @@
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from 'react-redux';
-import {Link} from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import ContentDetails from "../../components/ContentDetails";
 import { fetchAllIncAction } from "../../redux/slices/incomes/incomesSlices";
-import './IncomList.scss';
+import "./IncomList.scss";
 import bg from "../../img/profileBg.jpg";
 const IncomeList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllIncAction(1));
-  },[dispatch]);
+  }, [dispatch]);
 
   //get all incomes
 
-  const allIncomes = useSelector(state => state?.incomes);
-  const{loading, appErr, serverErr, incomesList} = allIncomes;
-
+  const allIncomes = useSelector((state) => state?.incomes);
+  const { loading, appErr, serverErr, incomesList } = allIncomes;
 
   return (
     <>
@@ -71,6 +70,7 @@ const IncomeList = () => {
                 )}
               </tbody>
             </table>
+            <div className="botLine"></div>
           </div>
         </div>
         <div
