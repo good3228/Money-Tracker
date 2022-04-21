@@ -4,7 +4,8 @@ import {useFormik} from "formik";
 import * as Yup from "yup";
 import moneySVG from "../../img/money.svg";
 import { createIncAction } from "../../redux/slices/incomes/incomesSlices";
-
+import './AddIncome.scss';
+import addIncomeImg from '../../img/logo.png';
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
   description: Yup.string().required('description is required'),
@@ -31,79 +32,70 @@ const AddIncome = () => {
 
   return (
     <>
-      <section className="py-5 bg-success vh-100">
-        <div className="container text-center">
-          <a className="d-inline-block mb-5">
-            <img
-              className="img-fluid"
-              src={moneySVG}
-              alt="SVGeXPENSES"
-              width="200"
-            />
-          </a>
-          <div className="row mb-4">
-            <div className="col-12 col-md-8 col-lg-5 mx-auto">
-              <div className="p-4 shadow-sm rounded bg-white">
-                <form onSubmit={formik.handleSubmit}>
-                  <span className="text-muted">Income</span>
-                  <h2 className="mb-4 fw-light">Record New Income</h2>
-                  {/* Display income Err */}
-                  {/* {incServerErr || incAppErr ? (
-                    <div className="alert alert-danger" role="alert">
-                      {incServerErr} {incAppErr}
-                    </div>
-                  ) : null} */}
-                  <div className="mb-3 input-group">
-                    <input
-                      value={formik.values.title}
-                      onChange={formik.handleChange("title")}
-                      onBlur={formik.handleBlur("title")}
-                      className="form-control"
-                      type="text"
-                      placeholder="Enter Title"
-                    />
-                  </div>
-                  {/* Err */}
-                  <div className="text-danger mb-3">
-                    {formik.touched.title && formik.errors.title}
-                  </div>
-                  <div className="mb-3 input-group">
-                    <input
-                      value={formik.values.description}
-                      onChange={formik.handleChange("description")}
-                      onBlur={formik.handleBlur("description")}
-                      className="form-control"
-                      type="text"
-                      placeholder="Enter Description"
-                    />
-                  </div>
-                  <div className="text-danger mb-3">
-                  {/* Err */}
-                    {formik.touched.description && formik.errors.description}
-                  </div>
-                  <div className="mb-3 input-group">
-                    <input
-                      value={formik.values.amount}
-                      onChange={formik.handleChange("amount")}
-                      onBlur={formik.handleBlur("amount")}
-                      className="form-control"
-                      type="number"
-                      placeholder="Enter Amount"
-                    />
-                  </div>
-                  {/* Err */}
-                  <div className="text-danger mb-3">
-                  {formik.touched.amount && formik.errors.amount}
-                  </div>
-                  <button type="submit" className="btn btn-success mb-4 w-100">
-                    Record Income
-                  </button>
-                </form>
-              </div>
-            </div>
+      <div className="AddIncome">
+        <img src={addIncomeImg} className="addIncomeBg"></img>
+        <form onSubmit={formik.handleSubmit}>
+          
+          <div class="segment">
+            <h1>Add Income</h1>
           </div>
-        </div>
-      </section>
+          <label>
+            <input
+              value={formik.values.title}
+              onChange={formik.handleChange("title")}
+              onBlur={formik.handleBlur("title")}
+              className="form-control"
+              type="text"
+              placeholder="Enter Title"
+            />
+          </label>
+          <div className="text-danger mb-3">
+            {formik.touched.title && formik.errors.title}
+          </div>
+          <label>
+            <input
+              value={formik.values.description}
+              onChange={formik.handleChange("description")}
+              onBlur={formik.handleBlur("description")}
+              className="form-control"
+              type="text"
+              placeholder="Enter Description"
+            />
+          </label>
+          <div className="text-danger mb-3">
+            {/* Err */}
+            {formik.touched.description && formik.errors.description}
+          </div>
+          <label>
+            <input
+              value={formik.values.amount}
+              onChange={formik.handleChange("amount")}
+              onBlur={formik.handleBlur("amount")}
+              className="form-control"
+              type="number"
+              placeholder="Enter Amount"
+            />
+          </label>
+          <div className="text-danger mb-3">
+            {formik.touched.amount && formik.errors.amount}
+          </div>
+          <button class="btnAddIncome" type="button">
+            <i class="icon ion-md-lock"></i> Add Income
+          </button>
+
+          <div class="segment">
+            <button class="unit" type="button">
+              <i class="icon ion-md-arrow-back"></i>
+            </button>
+            <button class="unit" type="button">
+              <i class="icon ion-md-bookmark"></i>
+            </button>
+            <button class="unit" type="button">
+              <i class="icon ion-md-settings"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
