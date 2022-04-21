@@ -16,13 +16,10 @@ $color-white: #fff;
 .AddExpense {
     height: 100vh;
   padding-top: 100px;
-  background: linear-gradient(to right,#f4bcb8, rgb(197, 39, 18));
+  // background: linear-gradient(to right,#f4bcb8, rgb(197, 39, 18));
   display: flex;
   justify-content: center;
-  img{
-      width: 250px;
-      height: 250px;
-  }
+
   p,
   input,
   select,
@@ -138,4 +135,13 @@ $color-white: #fff;
       flex: 1;
     }
   }
+}
+
+img.AddExpenseBg, img.AddIncomeBg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 120vh;
+  width: 100vw;
 }

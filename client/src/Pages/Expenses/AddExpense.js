@@ -6,6 +6,8 @@ import moneySVG from "../../img/money.svg";
 import { createExpAction } from "../../redux/slices/expenses/expensesSlices";
 import './AddExpense.scss';
 import addIncomeImg from "../../img/logo.png";
+import bg from "../../img/addExpenseBg.webp";
+
 const formSchema = Yup.object({
   title: Yup.string().required('title is required'),
   description: Yup.string().required('description is required'),
@@ -33,7 +35,8 @@ const AddExpense = () => {
   return (
     <>
       <div className="AddExpense">
-        <img src={addIncomeImg} className="addIncomeBg"></img>
+        <img src={bg} className="AddExpenseBg"></img>
+        <img src={addIncomeImg} className="addIncome"></img>
         <form onSubmit={formik.handleSubmit}>
           <div class="segment">
             <h1>Add Expense</h1>

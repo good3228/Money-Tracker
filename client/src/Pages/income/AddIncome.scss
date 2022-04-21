@@ -6,21 +6,15 @@ $color-white: #fff;
 
 
 
-.addIncomeBg{
-    position: absolute;
-    right:30px;
-    bottom: 300px;
-}
+
+
+
 .AddIncome {
     height: 100vh;
   padding-top: 100px;
-  background: linear-gradient(to right,#bed1f6, rgb(23, 61, 230));
-  display: flex;
+ display: flex;
   justify-content: center;
-  img{
-      width: 250px;
-      height: 250px;
-  }
+
   p,
   input,
   select,
@@ -135,4 +129,12 @@ $color-white: #fff;
       flex: 1;
     }
   }
+}
+
+.addIncome{
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    right:30px;
+    top: 100px;
 }

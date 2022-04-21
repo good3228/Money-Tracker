@@ -6,6 +6,8 @@ import moneySVG from "../../img/money.svg";
 import { createIncAction } from "../../redux/slices/incomes/incomesSlices";
 import './AddIncome.scss';
 import addIncomeImg from '../../img/logo.png';
+import bg from "../../img/addIncomeBg.jpg";
+
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
   description: Yup.string().required('description is required'),
@@ -33,7 +35,8 @@ const AddIncome = () => {
   return (
     <>
       <div className="AddIncome">
-        <img src={addIncomeImg} className="addIncomeBg"></img>
+        <img src={bg} className="AddIncomeBg"></img>
+        <img src={addIncomeImg} className="addIncome"></img>
         <form onSubmit={formik.handleSubmit}>
           <div class="segment">
             <h1>Add Income</h1>
