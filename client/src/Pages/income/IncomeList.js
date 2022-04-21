@@ -12,7 +12,7 @@ const IncomeList = () => {
 
   //get all incomes
 
-  const allIncomes = useSelector(state => state?.revenue);
+  const allIncomes = useSelector(state => state?.incomes);
   const{loading, appErr, serverErr, incomesList} = allIncomes;
 
 
