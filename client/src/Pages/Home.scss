@@ -4,8 +4,10 @@ div.home {
 
 img.bg {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   opacity: 0.9;
   z-index: -10;
 }

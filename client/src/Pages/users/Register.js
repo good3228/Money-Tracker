@@ -49,7 +49,7 @@ const Register = () => {
         <div>
           <div>
             <div>
-              <p className="sign register" align="center">
+              <p className="sign register" id = "register" align="center">
                 Register
               </p>
               <form onSubmit={formik.handleSubmit}>
