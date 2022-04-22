@@ -7,7 +7,10 @@ const PublicNavbar = () => {
     <>
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-          <div class="collapse navbar-collapse nav_main" id="navbarSupportedContent">
+          <div
+            class="collapse navbar-collapse nav_main"
+            id="navbarSupportedContent"
+          >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="hoverable">
                 <Link to="/" className="navbar-brand">
@@ -28,7 +31,7 @@ const PublicNavbar = () => {
               <li class="nav-item hoverable">
                 <Link
                   to="/"
-                  class="nav-link active hoverable"
+                  class="btn  hoverable btn-outline-info me-2 home"
                   aria-current="page"
                 >
                   Home
@@ -53,7 +56,7 @@ const PublicNavbar = () => {
               </li> */}
             </ul>
             <li className="hoverable">
-              <Link to="/login" className="btn btn-outline-secondary me-2">
+              <Link to="/login" className="btn btn-outline-light me-2">
                 Sign In
               </Link>
             </li>

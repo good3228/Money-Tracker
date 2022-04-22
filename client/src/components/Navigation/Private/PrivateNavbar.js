@@ -29,21 +29,27 @@ const PrivateNavbar = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link to="/profile" className="btn  btn-outline-primary me-2">
+                <Link to="/profile" className="btn  hoverable btn-outline-light me-2">
                   Profile
                 </Link>
               </li>
             </ul>
             <form class="d-flex">
-              <Link to="/add-expense" className="btn btn-danger newExpense me-2">
+              <Link
+                to="/add-expense"
+                className="btn btn-danger newExpense me-2 hoverable"
+              >
                 New Expense
               </Link>
-              <Link to="/add-income" className="btn btn-primary newIncome me-2">
+              <Link
+                to="/add-income"
+                className="btn btn-primary newIncome me-2 hoverable"
+              >
                 New Income
               </Link>
               <button
                 onClick={() => history.push("/")}
-                className="btn btn-warning me-2"
+                className="btn btn-outline-warning me-2 hoverable"
               >
                 Logout
               </button>
