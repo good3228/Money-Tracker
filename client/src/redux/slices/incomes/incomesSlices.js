@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 
-//
+// Create Action
 export const createIncAction = createAsyncThunk("income/create", /////
 async(payload, 
 {rejectWithValue, getState, dispatch})=> {
@@ -35,6 +35,34 @@ async(payload,
 }
 );
 
+// Update Action
+export const updateIncAction = createAsyncThunk("income/update", 
+async(payload, 
+{rejectWithValue, getState, dispatch})=> {
+    const config = {
+        headers:{
+            "Content-Type": "application/json",
+        },
+    };
+    try {
+        const { data } = await axios.put(`http:\/\/localhost:9000/income/${payload?.id}`, 
+        {
+            title: payload.title,
+            description: payload.description,
+            amount: payload.amount,
+        },
+        config
+        );
+        return data;
+    }catch(error) {
+        if(!error?.response) {
+            throw error;
+        }
+        return rejectWithValue(error?.response?.data);
+    }
+}
+);
+
 //  fetch all action
 export const fetchAllIncAction = createAsyncThunk("income/fetchAll", /////
 async(payload, 
@@ -53,6 +81,34 @@ async(payload,
             description: payload.description,
             amount: payload.amount,
             user: user_id
+        },
+        config
+        );
+        return data;
+    }catch(error) {
+        if(!error?.response) {
+            throw error;
+        }
+        return rejectWithValue(error?.response?.data);
+    }
+}
+);
+
+// Delete Action
+export const deleteIncAction = createAsyncThunk("income/delete", 
+async(payload, 
+{rejectWithValue, getState, dispatch})=> {
+    const config = {
+        headers:{
+            "Content-Type": "application/json",
+        },
+    };
+    try {
+        const { data } = await axios.delete(`http:\/\/localhost:9000/income/${payload?.id}`, 
+        {
+            title: payload.title,
+            description: payload.description,
+            amount: payload.amount,
         },
         config
         );
@@ -102,6 +158,40 @@ const incomeSlices = createSlice({
         state.appErr = undefined;
         state.serverErr = undefined;
     });
+
+    //  update Income
+    builder.addCase(updateIncAction.pending, (state, action) => {
+        state.loading = true;
+      });
+      builder.addCase(updateIncAction.fulfilled, (state, action) => {
+          state.loading = false;
+          state.incomeUpdated = action?.payload;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+      });
+      builder.addCase(updateIncAction.rejected, (state, action) => {
+          state.loading = false;
+          state.incomeUpdated = action?.payload;
+          state.appErr = action?.payload?.message;
+          state.serverErr = action?.error?.message;
+      });
+
+    //  delete Income
+    builder.addCase(deleteIncAction.pending, (state, action) => {
+        state.loading = true;
+      });
+      builder.addCase(deleteIncAction.fulfilled, (state, action) => {
+          state.loading = false;
+          state.incomeDeleted = action?.payload;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+      });
+      builder.addCase(deleteIncAction.rejected, (state, action) => {
+          state.loading = false;
+          state.incomeDeleted = action?.payload;
+          state.appErr = action?.payload?.message;
+          state.serverErr = action?.error?.message;
+      });
   },
 });
 
