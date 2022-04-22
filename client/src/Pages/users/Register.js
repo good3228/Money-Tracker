@@ -39,7 +39,7 @@ const Register = () => {
      // Redirect
     // console.log(user);
     useEffect(() => {
-      if(userAuth) { history.push('/'); }
+      if(userAuth) { history.push('/login'); }
     },[userAuth])
 
   return (
@@ -60,7 +60,7 @@ const Register = () => {
                 {/* Display Err */}
                 {userAppErr || userServerErr ? (
                   <div className="text-danger text-center mb-3">
-                    {"username or email exists" || "userServerErr"}
+                    {"Email exists" || "userServerErr"}
                   </div>
                 ) : null}
                 <input

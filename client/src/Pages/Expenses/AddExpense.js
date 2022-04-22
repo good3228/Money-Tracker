@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import{ useDispatch, useSelector } from "react-redux";
 import {useFormik} from "formik";
 import * as Yup from "yup";
+import { useHistory } from "react-router-dom";
 import moneySVG from "../../img/money.svg";
 import { createExpAction } from "../../redux/slices/expenses/expensesSlices";
 import './AddExpense.scss';
 import addIncomeImg from "../../img/logo.png";
 import bg from "../../img/addExpenseBg.jpeg";
+import DisabledButton from "../../components/DisabledButton";
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required'),
@@ -15,6 +17,7 @@ const formSchema = Yup.object({
 });
 
 const AddExpense = () => {
+  const history = useHistory();
   //dispatch events
   const dispatch = useDispatch();
 
@@ -31,7 +34,13 @@ const AddExpense = () => {
     validationSchema: formSchema,
 });
 
+const state = useSelector(state => state.expenses);
+const { loading, appErr, serverErr, expenseCreated, isExpCreated } = state;
 
+//Redirect
+useEffect(() => {
+  if(isExpCreated) history.push("/userExpense");
+}, [isExpCreated, dispatch]);
   return (
     <>
       <div className="AddExpense">
@@ -81,9 +90,10 @@ const AddExpense = () => {
           <div className="text-light mb-3">
             {formik.touched.amount && formik.errors.amount}
           </div>
-          <button class="btnAddIncome" type="submit">
-            Add Expense
-          </button>
+          {loading ? (<DisabledButton />):
+          (<button class="btnAddIncome" type="submit">
+          Add Expense
+        </button>)}
 
           {/* <div class="segment">
             <button class="unit" type="button">
