@@ -6,19 +6,16 @@ import { useFormik } from "formik";
 import ContentDetails from "../../components/ContentDetails";
 import { fetchAllExpAction, searchExpAction } from "../../redux/slices/expenses/expensesSlices";
 import bg from "../../img/profileBg.jpg";
-import { useHistory } from "react-router-dom";
 import './ExpensesList.scss';
-import navigate from "../../utils/nav";
 
 const formSchema = Yup.object({
   keyword: Yup.string().required('keyword is required '),
 });
 
-const ExpensesList = () => {
-  const history = useHistory();
+const ExpenseSearch = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllExpAction(1));
+    dispatch(searchExpAction(1));
   },[dispatch]);
 
   //get all expenses
@@ -33,17 +30,11 @@ const ExpensesList = () => {
         keyword: ""
       },
       onSubmit: (values) => {
-        dispatch(fetchAllExpAction(values));
+        dispatch(searchExpAction(values));
         // console.log(values);
       },
     validationSchema: formSchema,
   }); 
-
-  // useEffect(() => {
-  //   if (keyword) {
-  //     history.push("/expanse-search/");
-  //   }
-  // }, [keyword]);
 
   return (
     <>
@@ -56,15 +47,13 @@ const ExpensesList = () => {
               <h6 className="mb-0 fs-3">Recent Consumption Records</h6>
             </div>
             <form onSubmit={formik.handleSubmit}>
-              {/* <input type="text"
+              <input type="text"
                  value={formik.values.keyword}
                  onChange={formik.handleChange("keyword")}
                  onBlur={formik.handleBlur("keyword")}
                placeholder="search title..."> 
-              </input> */}
-              <button type = "submit"
-              onClick={() => navigate(history, "expanse-search", "")}
-              >To the Search Page</button>
+              </input>
+              <button type = "submit">search</button>
               </form>
             <table className="table border border-bottom">
               <thead>
@@ -101,10 +90,10 @@ const ExpensesList = () => {
                   <h1>Loading</h1>
                 ) : appErr || serverErr ? (
                   <div>Error</div>
-                ) : expensesList?.length <= 0 ? (
+                ) : keyword?.length <= 0 ? (
                   <h1>No Expense Found</h1>
                 ) : (
-                  expensesList?.map((exp) => (
+                  keyword?.map((exp) => (
                     // <div>{exp?.title}</div>
                     <ContentDetails item={exp} key={exp?._id} />
                   ))
@@ -127,4 +116,4 @@ const ExpensesList = () => {
   );
 };
 
-export default ExpensesList;
+export default ExpenseSearch;
