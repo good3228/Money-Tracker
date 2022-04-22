@@ -1,7 +1,12 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+import {createAsyncThunk, createSlice, createAction} from "@reduxjs/toolkit"
 import axios from "axios";
 
 
+
+//Actions Redirect
+export const resetExpCreated = createAction("expense/create/reset");
+export const resetExpUpdated = createAction("expense/updated/reset");
+export const resetExpDeleted = createAction("expense/deleted/reset");
 
 //
 export const createExpAction = createAsyncThunk("expense/create", 
@@ -25,6 +30,8 @@ async(payload,
         config
         );
         console.log(data);
+        //  dispatch
+        dispatch(resetExpCreated());
         return data;
     }catch(error) {
         if(!error?.response) {
@@ -55,6 +62,8 @@ async(payload,
         config
         );
         // console.log(data);
+        //  dispatch
+        dispatch(resetExpUpdated());
         return data;
     }catch(error) {
         if(!error?.response) {
@@ -116,6 +125,8 @@ async(payload,
         },
         config
         );
+        //  dispatch
+        dispatch(resetExpDeleted());
         return data;
     }catch(error) {
         if(!error?.response) {
@@ -133,11 +144,16 @@ const expenseSlices = createSlice({
     builder.addCase(createExpAction.pending, (state, action) => {
         state.loading = true;
     });
+    //  reset action
+    builder.addCase(resetExpCreated, (state, action) => {
+        state.isExpCreated = true;
+    })
     builder.addCase(createExpAction.fulfilled, (state, action) => {
       state.loading = false;
       state.expenseCreated = action?.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
+      state.isExpCreated = false;
     });
     builder.addCase(createExpAction.rejected, (state, action) => {
       state.loading = false;
@@ -168,11 +184,16 @@ const expenseSlices = createSlice({
     builder.addCase(updateExpAction.pending, (state, action) => {
         state.loading = true;
       });
+    //  reset action
+    builder.addCase(resetExpUpdated, (state, action) => {
+        state.isExpUpdated = true;
+    })
       builder.addCase(updateExpAction.fulfilled, (state, action) => {
           state.loading = false;
           state.expensesUpdated = action?.payload;
           state.appErr = undefined;
           state.serverErr = undefined;
+          state.isExpUpdated = false;
       });
       builder.addCase(updateExpAction.rejected, (state, action) => {
           state.loading = false;
@@ -185,11 +206,17 @@ const expenseSlices = createSlice({
     builder.addCase(deleteExpAction.pending, (state, action) => {
         state.loading = true;
       });
+
+    //  reset action
+    builder.addCase(resetExpDeleted, (state, action) => {
+        state.isExpDeleted = true;
+    })
       builder.addCase(deleteExpAction.fulfilled, (state, action) => {
           state.loading = false;
           state.expensesDeleted = action?.payload;
           state.appErr = undefined;
           state.serverErr = undefined;
+          state.isExpDeleted = false;
       });
       builder.addCase(deleteExpAction.rejected, (state, action) => {
           state.loading = false;

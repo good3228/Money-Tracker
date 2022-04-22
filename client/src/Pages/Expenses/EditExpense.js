@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import moneySVG from "../../img/money.svg";
 import {useFormik} from "formik";
 import{ useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { deleteExpAction, updateExpAction } from "../../redux/slices/expenses/expensesSlices";
 import DisabledButton from "../../components/DisabledButton";
-
+import { useHistory } from "react-router-dom";
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
@@ -26,6 +26,7 @@ const EditExpense = ({location: {
 }) => {
   // console.log(expense);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const formik = useFormik({
     initialValues:{
@@ -56,7 +57,7 @@ const EditExpense = ({location: {
         id: expense?._id,
       };
       dispatch(deleteExpAction(data));
-      alert("Expense updated!");
+      alert("Expense deleted!");
     },
     validationSchema: formSchema,
   });
@@ -64,7 +65,16 @@ const EditExpense = ({location: {
   //get data form store
   const expenseData = useSelector(state => state.expenses);
   // console.log(expenseData);
-  const {appErr, serverErr, expenseUpdated, loading} = expenseData;
+  const {appErr, serverErr, expenseUpdated, loading, isExpUpdated, isExpDeleted} = expenseData;
+  //Redirect
+useEffect(() => {
+  if(isExpUpdated) history.push("/userExpense");
+}, [isExpUpdated, dispatch]);
+
+useEffect(() => {
+  if(isExpDeleted) history.push("/userExpense");
+}, [isExpDeleted, dispatch]);
+
   return (
     <section className="py-5 bg-secondary vh-100">
       <div className="container text-center">
