@@ -5,6 +5,7 @@ import navigate from "../../utils/nav";
 import AccountSum from './accountSum'
 import bg from '../../img/profileBg.jpg';
 import './Profile.scss';
+import dateFormatter from "../../utils/dateFormatter";
 const Profile = () => {
   const history = useHistory();
 
@@ -35,7 +36,7 @@ const Profile = () => {
                   </div>
                 </h6>
                 <div className="badge ms-2 bg-primary-light text-primary joinDate">
-                  JOINED DATE: {userAuth?.createdAt}
+                  JOINED DATE: {dateFormatter(userAuth?.createdAt)}
                 </div>
                 <br />
                 {/* <button
