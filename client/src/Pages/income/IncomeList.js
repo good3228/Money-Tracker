@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import ContentDetails from "../../components/ContentDetails";
+import ContentDetails from "../../components/IncomeContentDetails";
 import { fetchAllIncAction } from "../../redux/slices/incomes/incomesSlices";
 import "./IncomList.scss";
 import bg from "../../img/profileBg.jpg";

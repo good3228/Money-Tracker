@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import moneySVG from "../../img/money.svg";
 import {useFormik} from "formik";
 import{ useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { deleteExpAction, updateExpAction } from "../../redux/slices/expenses/expensesSlices";
+import { deleteIncAction, updateIncAction } from "../../redux/slices/incomes/incomesSlices";
 import DisabledButton from "../../components/DisabledButton";
-import { useHistory } from "react-router-dom";
+
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
@@ -20,61 +20,49 @@ const formSchema2 = Yup.object({
 });
 
 
-const EditExpense = ({location: {
-  state: { expense },
+const EditIncome = ({location: {
+  state: { revenue },
   },
 }) => {
-  // console.log(expense);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const formik = useFormik({
     initialValues:{
-        title: expense?.title,
-        description: expense?.description,
-        amount: expense?.amount
+        title: revenue?.title,
+        description: revenue?.description,
+        amount: revenue?.amount
       },
     onSubmit: values => {
       const data = {
         ...values,
-        id: expense?._id,
+        id: revenue?._id,
       };
-      dispatch(updateExpAction(data));
-      alert("Expense updated!");
+      dispatch(updateIncAction(data));
+      alert("Income updated!");
     },
     validationSchema: formSchema,
   }); 
 
   const formik2 = useFormik({
     initialValues:{
-        title: expense?.title,
-        description: expense?.description,
-        amount: expense?.amount
+        title: revenue?.title,
+        description: revenue?.description,
+        amount: revenue?.amount
       },
     onSubmit: values => {
       const data = {
         ...values,
-        id: expense?._id,
+        id: revenue?._id,
       };
-      dispatch(deleteExpAction(data));
-      alert("Expense deleted!");
+      dispatch(deleteIncAction(data));
+      alert("Incomes updated!");
     },
     validationSchema: formSchema,
   });
 
   //get data form store
-  const expenseData = useSelector(state => state.expenses);
-  // console.log(expenseData);
-  const {appErr, serverErr, expenseUpdated, loading, isExpUpdated, isExpDeleted} = expenseData;
-  //Redirect
-useEffect(() => {
-  if(isExpUpdated) history.push("/userExpense");
-}, [isExpUpdated, dispatch]);
-
-useEffect(() => {
-  if(isExpDeleted) history.push("/userExpense");
-}, [isExpDeleted, dispatch]);
-
+  const incomeData = useSelector(state => state.incomes);
+  const {appErr, serverErr, incomeUpdated, loading} = incomeData;
   return (
     <section className="py-5 bg-secondary vh-100">
       <div className="container text-center">
@@ -159,4 +147,4 @@ useEffect(() => {
   );
 };
 
-export default EditExpense;
+export default EditIncome;
