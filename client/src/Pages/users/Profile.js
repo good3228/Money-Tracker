@@ -36,7 +36,7 @@ const Profile = () => {
                   </div>
                 </h6>
                 <div className="badge ms-2 bg-primary-light text-primary joinDate">
-                  JOINED DATE: {dateFormatter(userAuth?.createdAt)}
+                  {/* JOINED DATE: {dateFormatter(userAuth?.createdAt)} */}
                 </div>
                 <br />
                 {/* <button
