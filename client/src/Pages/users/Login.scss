@@ -16,10 +16,10 @@ body {
   font-family: "Ubuntu", sans-serif;
 }
 
-.main {
+div.main {
   background-color: #ffffff;
   width: 400px;
-  height: 400px;
+  height: 430px;
   margin: 12em auto;
   border-radius: 1.5em;
   box-shadow: 0px 11px 45px 5px rgba(0, 0, 0, 0.3);
@@ -134,3 +134,6 @@ img.background{
   opacity: 0.85;
 }
 
+form.form1{
+  padding: 0;
+}

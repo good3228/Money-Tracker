@@ -52,7 +52,7 @@ const Login = () => {
               </p>
               {/* Display Err */}
               {userAppErr || userServerErr ? (
-                <div className="warning">
+                <div className="text-center">
                   {<p className="warning">username or password wrong</p> || (
                     <p>userServerErr</p>
                   )}

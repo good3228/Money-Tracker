@@ -14,17 +14,14 @@ const ContentDetails = ({item}) => {
         <td className="p-6">{item?.description}</td>
         <td className="p-6">{item?.amount}</td>
         <td className="p-6">{dateFormatter(item?.updatedAt? (item?.updatedAt) : (item?.createdAt))}</td>
-        <td className="p-6">
-        </td>
-        <td className="p-6">
-          <button
+        <td className="p-6">         <button
             onClick={() => history.push({
               pathname:`/edit-income/`,
               state:{
                 revenue: item,
               }
             })}
-            className="badge bg-success-light text-success"
+            className="badge bg-success-light text-success" 
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -41,6 +38,9 @@ const ContentDetails = ({item}) => {
               />
             </svg>
           </button>
+        </td>
+        <td className="p-6">
+ 
           {/* <button
             onClick={() => history.push({
               pathname:`/edit-expense/`,
