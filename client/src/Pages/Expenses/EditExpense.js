@@ -6,6 +6,9 @@ import * as Yup from "yup";
 import { deleteExpAction, updateExpAction } from "../../redux/slices/expenses/expensesSlices";
 import DisabledButton from "../../components/DisabledButton";
 import { useHistory } from "react-router-dom";
+import './EditExpense.scss';
+import addIncomeImg from "../../img/logo.png";
+import bg from "../../img/addExpenseBg.jpeg";
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
@@ -76,27 +79,17 @@ useEffect(() => {
 }, [isExpDeleted, dispatch]);
 
   return (
-    <section className="py-5 bg-secondary vh-100">
-      <div className="container text-center">
-        <a className="d-inline-block mb-5">
-          <img
-            className="img-fluid"
-            src={moneySVG}
-            alt="SVGeXPENSES"
-            width="200"
-          />
-        </a>
-        <div className="row mb-4">
-          <div className="col-12 col-md-8 col-lg-5 mx-auto">
-            <div className="p-4 shadow-sm rounded bg-white">
+      <div className="AddExpense">
+        <img src={bg} className="AddExpenseBg"></img>
+        <img src={addIncomeImg} className="addIncome"></img>
+        <div className="updateForm">
               <form onSubmit={formik.handleSubmit}>
-                <span className="text-muted">
-                </span>
-                <h2 className="mb-4 fw-light">  
-                </h2>
+              <div class="segment">
+                  <h1>Edit Expense</h1>
+              </div>
                 {/* Display Err */}
                 {appErr || serverErr? <div>Error</div> : null}
-                <div className="mb-3 input-group">
+                <label>
                   <input
                     value={formik.values.title}
                     onChange={formik.handleChange("title")}
@@ -105,12 +98,12 @@ useEffect(() => {
                     type="text"
                     placeholder="Enter Title"
                   />
-                </div>
+                </label>
                 {/* Err */}
                 <div className="text-danger mb-3">
                   {formik.touched.title && formik.errors.title}
                 </div>
-                <div className="mb-3 input-group">
+                <label>
                   <input
                     value={formik.values.description}
                     onChange={formik.handleChange("description")}
@@ -119,12 +112,12 @@ useEffect(() => {
                     type="text"
                     placeholder="Enter Description"
                   />
-                </div>
+                </label>
                 {/* Err */}
                 <div className="text-danger mb-3">
                 {formik.touched.description && formik.errors.description}
                 </div>
-                <div className="mb-3 input-group">
+                <label>
                   <input
                     value={formik.values.amount}
                     onChange={formik.handleChange("amount")}
@@ -133,7 +126,7 @@ useEffect(() => {
                     type="number"
                     placeholder="Enter Amount"
                   />
-                </div>
+                </label>
                 {/* Err */}
                 <div className="text-danger mb-3">
                 {formik.touched.amount && formik.errors.amount}
@@ -141,21 +134,20 @@ useEffect(() => {
                 {loading ? (
                   <DisabledButton />
                 ) : (
-                  <button type="submit" className="btn btn-primary mb-4 w-100">
+                  <button type="submit" class="btnAddIncome">
                   Update
                 </button>
                 )}
               </form>
+              </div>
+              <div className="deleteForm">
               <form onSubmit={formik2.handleSubmit}>
-                <button type="submit" className="btn btn-primary mb-4 w-100">
+                <button type="submit" className="btnAddIncome">
                   Delete
                 </button>
               </form>
-            </div>
-          </div>
+              </div>
         </div>
-      </div>
-    </section>
   );
 };
 

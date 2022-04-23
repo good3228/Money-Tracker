@@ -3,7 +3,6 @@ import{ useDispatch, useSelector } from "react-redux";
 import {useFormik} from "formik";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
-import moneySVG from "../../img/money.svg";
 import { createExpAction } from "../../redux/slices/expenses/expensesSlices";
 import './AddExpense.scss';
 import addIncomeImg from "../../img/logo.png";
