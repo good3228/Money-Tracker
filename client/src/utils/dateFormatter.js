@@ -4,7 +4,7 @@ const dateFormatter = date => {
     let month = new Intl.DateTimeFormat('en', { month: "short"}).format(d);
     let day = new Intl.DateTimeFormat('en', { day: "2-digit"}).format(d);
 
-    return `${day}-${month}-${year}`;
+    return `${month}-${day}-${year}`;
 };
 
 export default dateFormatter;
