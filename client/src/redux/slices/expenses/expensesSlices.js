@@ -107,31 +107,31 @@ async(payload,
 
 
 //  search action
-export const searchExpAction = createAsyncThunk("expense/search", 
-async(payload, 
-{rejectWithValue, getState, dispatch})=> {
+// export const searchExpAction = createAsyncThunk("expense/search", 
+// async(payload, 
+// {rejectWithValue, getState, dispatch})=> {
 
-    const user_id = getState()?.users?.userAuth?._id;
-    const keyword = payload?.keyword;
-    const config = {
-        headers:{
-            "Content-Type": "application/json",
-        },
-    };
-    try {
-        const { data } = await axios.get("http://localhost:9000/userExpense/" + user_id + "?title=" + keyword, 
-       payload,
-        config
-        );
-        return data;
-    }catch(error) {
-        if(!error?.response) {
-            throw error;
-        }
-        return rejectWithValue(error?.response?.data);
-    }
-}
-);
+//     const user_id = getState()?.users?.userAuth?._id;
+//     const keyword = payload?.keyword;
+//     const config = {
+//         headers:{
+//             "Content-Type": "application/json",
+//         },
+//     };
+//     try {
+//         const { data } = await axios.get("http://localhost:9000/userExpense/" + user_id + "?title=" + keyword, 
+//        payload,
+//         config
+//         );
+//         return data;
+//     }catch(error) {
+//         if(!error?.response) {
+//             throw error;
+//         }
+//         return rejectWithValue(error?.response?.data);
+//     }
+// }
+// );
 
 //  Delete action
 export const deleteExpAction = createAsyncThunk("expense/delete", 
@@ -208,22 +208,22 @@ const expenseSlices = createSlice({
     });
 
     //  search Expenses
-    builder.addCase(searchExpAction.pending, (state, action) => {
-        state.loading = true;
-      });
-      builder.addCase(searchExpAction.fulfilled, (state, action) => {
-          state.loading = false;
-        //   state.expensesList = action?.payload;
-          state.appErr = undefined;
-          state.serverErr = undefined;
-          state.keyword = action?.payload;
-      });
-      builder.addCase(searchExpAction.rejected, (state, action) => {
-          state.loading = false;
-          state.expensesList = action?.payload;
-          state.appErr = undefined;
-          state.serverErr = undefined;
-      });    
+    // builder.addCase(searchExpAction.pending, (state, action) => {
+    //     state.loading = true;
+    //   });
+    //   builder.addCase(searchExpAction.fulfilled, (state, action) => {
+    //       state.loading = false;
+    //     //   state.expensesList = action?.payload;
+    //       state.appErr = undefined;
+    //       state.serverErr = undefined;
+    //       state.keyword = action?.payload;
+    //   });
+    //   builder.addCase(searchExpAction.rejected, (state, action) => {
+    //       state.loading = false;
+    //       state.expensesList = action?.payload;
+    //       state.appErr = undefined;
+    //       state.serverErr = undefined;
+    //   });    
 
 
     //  update Expense

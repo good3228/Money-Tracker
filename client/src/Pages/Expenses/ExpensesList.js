@@ -1,21 +1,21 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from "react-router-dom";
-import * as Yup from "yup";
-import { useFormik } from "formik";
+// import * as Yup from "yup";
+// import { useFormik } from "formik";
 import ContentDetails from "../../components/ContentDetails";
-import { fetchAllExpAction, searchExpAction } from "../../redux/slices/expenses/expensesSlices";
+import { fetchAllExpAction} from "../../redux/slices/expenses/expensesSlices";
 import bg from "../../img/profileBg.jpg";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import './ExpensesList.scss';
-import navigate from "../../utils/nav";
+// import navigate from "../../utils/nav";
 
-const formSchema = Yup.object({
-  keyword: Yup.string().required('keyword is required '),
-});
+// const formSchema = Yup.object({
+//   keyword: Yup.string().required('keyword is required '),
+// });
 
 const ExpensesList = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllExpAction(1));
@@ -24,20 +24,22 @@ const ExpensesList = () => {
   //get all expenses
 
   const allExpenses = useSelector(state => state?.expenses);
-  const{loading, appErr, serverErr, expensesList, keyword} = allExpenses;
+  const{loading, appErr, serverErr, expensesList
+    // , keyword
+  } = allExpenses;
 
   // console.log(loading, appErr, serverErr, expensesList);
 
-  const formik = useFormik({
-    initialValues:{
-        keyword: ""
-      },
-      onSubmit: (values) => {
-        dispatch(fetchAllExpAction(values));
-        // console.log(values);
-      },
-    validationSchema: formSchema,
-  }); 
+  // const formik = useFormik({
+  //   initialValues:{
+  //       keyword: ""
+  //     },
+  //     onSubmit: (values) => {
+  //       dispatch(fetchAllExpAction(values));
+  //       // console.log(values);
+  //     },
+  //   validationSchema: formSchema,
+  // }); 
 
   // useEffect(() => {
   //   if (keyword) {
@@ -55,17 +57,17 @@ const ExpensesList = () => {
             <div className="pt-8 px-8 mb-8">
               <h6 className="mb-0 fs-3">Recent Consumption Records</h6>
             </div>
-            <form onSubmit={formik.handleSubmit}>
+            {/* <form onSubmit={formik.handleSubmit}> */}
               {/* <input type="text"
                  value={formik.values.keyword}
                  onChange={formik.handleChange("keyword")}
                  onBlur={formik.handleBlur("keyword")}
                placeholder="search title..."> 
               </input> */}
-              <button type = "submit"
+              {/* <button type = "submit"
               onClick={() => navigate(history, "expanse-search", "")}
               >To the Search Page</button>
-              </form>
+              </form> */}
             <table className="table border border-bottom">
               <thead>
                 <tr className="table-active">
