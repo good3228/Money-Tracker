@@ -1,19 +1,22 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit"
+import {createAsyncThunk, createSlice, createAction} from "@reduxjs/toolkit"
 import axios from "axios";
 
-
+// Redirect
+export const resetIncCreated = createAction("income/create/reset");
+export const resetIncUpdated = createAction("income/updated/reset");
+export const resetIncDeleted = createAction("income/deleted/reset");
 
 // Create Action
-export const createIncAction = createAsyncThunk("income/create", /////
+export const createIncAction = createAsyncThunk("income/create",
 async(payload, 
-{rejectWithValue, getState, dispatch})=> {
-
-    const user_id = getState()?.users?.userAuth?._id;
-    const config = {
-        headers:{
-            "Content-Type": "application/json",
-        },
-    };
+    {rejectWithValue, getState, dispatch})=> {
+    
+        const user_id = getState()?.users?.userAuth?._id;
+        const config = {
+            headers:{
+                "Content-Type": "application/json",
+            },
+        };
     try {
         const { data } = await axios.post("http://localhost:9000/income", 
         {
@@ -25,6 +28,8 @@ async(payload,
         config
         );
         console.log(data);
+        //  dispatch
+        dispatch(resetIncCreated());
         return data;
     }catch(error) {
         if(!error?.response) {
@@ -53,6 +58,7 @@ async(payload,
         },
         config
         );
+        dispatch(resetIncUpdated());
         return data;
     }catch(error) {
         if(!error?.response) {
@@ -94,10 +100,38 @@ async(payload,
 }
 );
 
+//  search action
+export const searchIncAction = createAsyncThunk("income/search", 
+async(payload, 
+{rejectWithValue, getState, dispatch})=> {
+
+    const user_id = getState()?.users?.userAuth?._id;
+    const keyword = payload?.keyword;
+    const config = {
+        headers:{
+            "Content-Type": "application/json",
+        },
+    };
+    try {
+        const { data } = await axios.get("http://localhost:9000/userIncome/search/" + user_id + "?title=" + keyword, 
+       payload,
+        config
+        );
+        return data;
+    }catch(error) {
+        if(!error?.response) {
+            throw error;
+        }
+        return rejectWithValue(error?.response?.data);
+    }
+}
+);
+
 // Delete Action
 export const deleteIncAction = createAsyncThunk("income/delete", 
 async(payload, 
 {rejectWithValue, getState, dispatch})=> {
+
     const config = {
         headers:{
             "Content-Type": "application/json",
@@ -112,6 +146,7 @@ async(payload,
         },
         config
         );
+        dispatch(resetIncDeleted());
         return data;
     }catch(error) {
         if(!error?.response) {
@@ -129,11 +164,15 @@ const incomeSlices = createSlice({
     builder.addCase(createIncAction.pending, (state, action) => {
         state.loading = true;
     });
+    builder.addCase(resetIncCreated, (state, action) => {
+        state.isExpCreated = true;
+    })
     builder.addCase(createIncAction.fulfilled, (state, action) => {
       state.loading = false;
       state.incomeCreated = action?.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
+      state.isIncCreated = false;      
     });
     builder.addCase(createIncAction.rejected, (state, action) => {
       state.loading = false;
@@ -159,15 +198,37 @@ const incomeSlices = createSlice({
         state.serverErr = undefined;
     });
 
+    //  search income
+    builder.addCase(searchIncAction.pending, (state, action) => {
+        state.loading = true;
+      });
+      builder.addCase(searchIncAction.fulfilled, (state, action) => {
+          state.loading = false;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+          state.keyword = action?.payload;
+      });
+      builder.addCase(searchIncAction.rejected, (state, action) => {
+          state.loading = false;
+          state.incomesList = action?.payload;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+      }); 
+
     //  update Income
     builder.addCase(updateIncAction.pending, (state, action) => {
         state.loading = true;
       });
+      //  reset action
+    builder.addCase(resetIncUpdated, (state, action) => {
+        state.isIncUpdated = true;
+    })
       builder.addCase(updateIncAction.fulfilled, (state, action) => {
           state.loading = false;
           state.incomeUpdated = action?.payload;
           state.appErr = undefined;
           state.serverErr = undefined;
+          state.isIncUpdated = false;
       });
       builder.addCase(updateIncAction.rejected, (state, action) => {
           state.loading = false;
@@ -179,12 +240,17 @@ const incomeSlices = createSlice({
     //  delete Income
     builder.addCase(deleteIncAction.pending, (state, action) => {
         state.loading = true;
-      });
+      })
+      //  reset action
+    builder.addCase(resetIncDeleted, (state, action) => {
+        state.isIncDeleted = true;
+    })
       builder.addCase(deleteIncAction.fulfilled, (state, action) => {
           state.loading = false;
           state.incomeDeleted = action?.payload;
           state.appErr = undefined;
           state.serverErr = undefined;
+          state.isIncDeleted = false;
       });
       builder.addCase(deleteIncAction.rejected, (state, action) => {
           state.loading = false;
