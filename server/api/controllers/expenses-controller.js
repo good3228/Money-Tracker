@@ -74,3 +74,22 @@ export const delete_userExpense = async (request,response) => {
         setErrorResponse(error,response)
     }
 }
+
+export const search_expense_record = async (request, response) => {
+    try{
+        const userid = request.params.userid;
+        // const record = await expenseService.getRecord(userid);
+        const title = request.query.title;
+        const searchExpense = await Expense.find({
+            "user":userid,
+            $or:[
+                {title:{ $regex: new RegExp(title)}}
+            ]
+        }).sort('-createdAt');
+        if(searchExpense || searchExpense.length === []){
+            setSuccessResponse(searchExpense,response);
+        }
+    }catch(error){
+        setErrorResponse(error,response)
+    }
+}
