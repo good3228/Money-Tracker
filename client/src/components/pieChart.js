@@ -34,18 +34,18 @@ const graph =({revenue, expenses})=>{
   return (
     <div
       style={{
-        display: "flex",
-        height: "60px%",
-        width: "20%",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        marginTop: "40px",
+        // display: "flex",
+        // height: "60px%",
+        // width: "20%",
+        // justifyContent: "center",
+        // alignItems: "center",
+        // flexDirection: "column",
+        marginLeft: "50px",
       }}
     >
-      <div>
+      {/* <div>
         <h3> Transactions</h3>
-      </div>
+      </div> */}
       <Pie data={data} />
     </div>
   );

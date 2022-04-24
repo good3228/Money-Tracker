@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import moneySVG from "../../img/money.svg";
 import {useFormik} from "formik";
 import{ useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { deleteIncAction, updateIncAction } from "../../redux/slices/incomes/incomesSlices";
 import DisabledButton from "../../components/DisabledButton";
-
+import { useHistory } from "react-router-dom";
+import './EditIncome.scss';
+import addIncomeImg from "../../img/logo.png";
+import bg from "../../img/addIncomeBg.jpg";
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
@@ -25,6 +28,8 @@ const EditIncome = ({location: {
   },
 }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   const formik = useFormik({
     initialValues:{
@@ -55,36 +60,35 @@ const EditIncome = ({location: {
         id: revenue?._id,
       };
       dispatch(deleteIncAction(data));
-      alert("Incomes updated!");
+      alert("Income deleted!");
     },
     validationSchema: formSchema,
   });
 
-  //get data form store
+  // get data form store
   const incomeData = useSelector(state => state.incomes);
-  const {appErr, serverErr, incomeUpdated, loading} = incomeData;
+  const {appErr, serverErr, incomeUpdated, loading, isIncUpdated, isIncDeleted} = incomeData;
+  // redirect
+  useEffect(() => {
+    if(isIncUpdated) history.push("/userIncome");
+  }, [isIncUpdated, dispatch]);
+  
+  useEffect(() => {
+    if(isIncDeleted) history.push("/userIncome");
+  }, [isIncDeleted, dispatch]);
+
   return (
-    <section className="py-5 bg-secondary vh-100">
-      <div className="container text-center">
-        <a className="d-inline-block mb-5">
-          <img
-            className="img-fluid"
-            src={moneySVG}
-            alt="SVGeXPENSES"
-            width="200"
-          />
-        </a>
-        <div className="row mb-4">
-          <div className="col-12 col-md-8 col-lg-5 mx-auto">
-            <div className="p-4 shadow-sm rounded bg-white">
+    <div className="AddIncome">
+        <img src={bg} className="AddIncomeBg"></img>
+        <img src={addIncomeImg} className="addIncome"></img>
+        <div className="updateForm">
               <form onSubmit={formik.handleSubmit}>
-                <span className="text-muted">
-                </span>
-                <h2 className="mb-4 fw-light">  
-                </h2>
+              <div class="segment">
+                <h1>Edit Income</h1>
+              </div>
                 {/* Display Err */}
                 {appErr || serverErr? <div>Error</div> : null}
-                <div className="mb-3 input-group">
+                <label>
                   <input
                     value={formik.values.title}
                     onChange={formik.handleChange("title")}
@@ -93,12 +97,12 @@ const EditIncome = ({location: {
                     type="text"
                     placeholder="Enter Title"
                   />
-                </div>
+                </label>
                 {/* Err */}
                 <div className="text-danger mb-3">
                   {formik.touched.title && formik.errors.title}
                 </div>
-                <div className="mb-3 input-group">
+                <label>
                   <input
                     value={formik.values.description}
                     onChange={formik.handleChange("description")}
@@ -107,12 +111,12 @@ const EditIncome = ({location: {
                     type="text"
                     placeholder="Enter Description"
                   />
-                </div>
+                </label>
                 {/* Err */}
                 <div className="text-danger mb-3">
                 {formik.touched.description && formik.errors.description}
                 </div>
-                <div className="mb-3 input-group">
+                <label>
                   <input
                     value={formik.values.amount}
                     onChange={formik.handleChange("amount")}
@@ -121,7 +125,7 @@ const EditIncome = ({location: {
                     type="number"
                     placeholder="Enter Amount"
                   />
-                </div>
+                </label>
                 {/* Err */}
                 <div className="text-danger mb-3">
                 {formik.touched.amount && formik.errors.amount}
@@ -129,22 +133,19 @@ const EditIncome = ({location: {
                 {loading ? (
                   <DisabledButton />
                 ) : (
-                  <button type="submit" className="btn btn-primary mb-4 w-100">
+                  <button type="submit" className="btnAddIncome">
                   Update
                 </button>
                 )}
               </form>
               <form onSubmit={formik2.handleSubmit}>
-                <button type="submit" className="btn btn-primary mb-4 w-100">
+                <button type="submit" className="btnAddIncome">
                   Delete
                 </button>
               </form>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
+  );      
 };
 
 export default EditIncome;

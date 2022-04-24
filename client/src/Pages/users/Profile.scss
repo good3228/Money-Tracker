@@ -1,16 +1,19 @@
-section.py-5{
-    div.info{
+
+    div.infobox{
         border: 2px solid black;
     }
+
+    div.info{
+        margin-right: 70px;
+    }
+
     div.name{
-        font-size: 1.4rem;
-        position: relative;
-        left: 23px;  
+        font-weight: bold;
     }
-    div.email, div.joinDate{
-        font-size:1.2rem;
-    }
-}
+    // div.email, div.joinDate{
+    //     font-size:1.2rem;
+    // }
+
 
     img.profileBg{
         position: absolute;
@@ -21,3 +24,28 @@ section.py-5{
         width: 100vw;
         opacity: 1;
     }
+
+
+// section.py-5{
+//     div.info{
+//         border: 2px solid black;
+//     }
+//     div.name{
+//         font-size: 1.4rem;
+//         position: relative;
+//         left: 23px;  
+//     }
+//     div.email, div.joinDate{
+//         font-size:1.2rem;
+//     }
+// }
+
+//     img.profileBg{
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         z-index: -1;
+//         height: 130vh;
+//         width: 100vw;
+//         opacity: 1;
+//     }

@@ -5,9 +5,13 @@ import DisabledButton from "../../components/DisabledButton";
 import { useHistory } from "react-router-dom";
 import Graph from "../../components/pieChart";
 import './accountSum.scss';
+import navigate from "../../utils/nav";
+
+
 //dispatch
 const AccountSum = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(fetchAccountStatsAction());
@@ -19,15 +23,12 @@ const AccountSum = () => {
 
   return (
     <>
-      <div className="box">
+      {/* <div className="box">
         <Graph
           revenue={accountDetails?.revenueStats[0]?.totalRev}
           expenses={accountDetails?.expensesStats[0]?.totalExp}
         />
-      </div>
-      <h4 className="mb-0">
-      Net Profit: {accountDetails?.profit}
-      </h4>
+      </div> */}
       <div className="row">
         <div className="col-12 col-md-6 mb-6">
           <div className="p-8 border-dark border border-bottom-0 rounded-2">
@@ -41,7 +42,7 @@ const AccountSum = () => {
                 Total Expenses:
               </span>
             </div>
-            {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
+            {!appErr && !serverErr ? (
               <h1 className="mb-4">
                 &nbsp; ${accountDetails?.expensesStats[0]?.totalExp}
               </h1>
@@ -52,7 +53,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Number of Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
+                {!appErr && !serverErr ? (
                   <span>{accountDetails?.expensesStats[0]?.totalRecords}</span>
                 ) : (
                   <span>0</span>
@@ -63,7 +64,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Minimum Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
+                {!appErr && !serverErr ? (
                   <span>${accountDetails?.expensesStats[0]?.minExp}</span>
                 ) : (
                   <span>0</span>
@@ -74,7 +75,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Maximum Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
+                {!appErr && !serverErr ? (
                   <span>${accountDetails?.expensesStats[0]?.maxExp}</span>
                 ) : (
                   <span>0</span>
@@ -85,14 +86,21 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Average Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
+                {!appErr && !serverErr ? (
                   <span>${accountDetails?.expensesStats[0]?.averageExp}</span>
                 ) : (
                   <span>0</span>
                 )}
               </span>
             </h4>
+            <button
+                onClick={() => navigate(history, "userExpense", "")}
+                className="btn me-4 w-100 btn-outline-danger d-flex align-items-center justify-content-center"
+              >
+                <span>View Expenses History</span>
+              </button>
             <br></br>
+
           </div>
         </div>
         <div className="col-12 col-md-6 mb-6">
@@ -108,7 +116,7 @@ const AccountSum = () => {
                 Total Income:
               </span>
             </div>
-            {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
+            {!appErr && !serverErr ? (
               <h1 className="mb-4">
                 &nbsp; ${accountDetails?.revenueStats[0]?.totalRev}
               </h1>
@@ -118,7 +126,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Number of Transactions:</span>
-              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
+              {!appErr && !serverErr ? (
                 <span className="text-danger ms-1">
                   {accountDetails?.revenueStats[0]?.totalRecords}
                 </span>
@@ -129,7 +137,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Minimum Transactions:</span>
-              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
+              {!appErr && !serverErr ? (
                 <span className="text-danger ms-1">
                   ${accountDetails?.revenueStats[0]?.minRev}
                 </span>
@@ -140,7 +148,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Maximum Transactions:</span>
-              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
+              {!appErr && !serverErr ? (
                 <span className="text-danger ms-1">
                   ${accountDetails?.revenueStats[0]?.maxRev}
                 </span>
@@ -151,7 +159,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Average Transactions:</span>
-              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
+              {!appErr && !serverErr ? (
                 <span className="text-danger ms-1">
                   ${accountDetails?.revenueStats[0]?.averageRev}
                 </span>
@@ -159,6 +167,12 @@ const AccountSum = () => {
                 <span className="text-danger ms-1">0</span>
               )}
             </h4>
+            <button
+                onClick={() => navigate(history, "userIncome", "")}
+                className="btn w-100 btn-outline-primary d-flex align-items-center justify-content-center"
+              >
+                <span>View Income History</span>
+              </button>
             <br></br>
           </div>
         </div>
