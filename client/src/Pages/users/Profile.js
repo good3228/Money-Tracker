@@ -39,13 +39,7 @@ const Profile = () => {
                   JOINED DATE: {dateFormatter(userAuth?.createdAt? (userAuth?.createdAt) : null)}
                 </div>
                 <br />
-                {/* <button
-                  // onClick={() => navigate(history, "update-profile", profile)}
-                  className="btn"
-                >
-                  Edit Profile
-                  <i class="bi bi-pen fs-3 m-3 text-primary"></i>
-                </button> */}
+
               </div>
             </div>
 

@@ -11,20 +11,50 @@ Team 19: AJHJ
 
 ## Project Description
 
-We aim to create a social web-app based on matching mechanism.
-Users would be able to connect with other users and have a chat on the web-app.
+We aim to create an expense tracker app, user can see and record their revenue and expense by logging in,
+this app can also give a better visualization of users' total revenue and expense.
 
-## Domain Model
+## Run Our App
 
-[User Login](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/Domain%20Model-Login.png)
-[User Application Interface](https://github.com/neu-mis-info6150-spring-2022/final-project-ajhj/blob/main/Domain%20Model-User%20Application%20Interface.jpeg)
+git clone our repo to an IDE such as intelliJ
+
+Open the terminal, type "cd server" command and then "npm start" to start running the REST API
+
+Open another terminal, at the same time, type "cd client" and then "npm start" to start running our app
 
 ## User Stories
 
-1. As a user, I can create an account and log in with id and password
-2. As a user, I can upload my photos
-3. As a user, I can update my profile information
-4. As a user, I can see profiles of other users can select the ones I like
-5. As a user, I can see a list of users that liked me back and delete selected ones
-6. As a user, I can select a user in the list and initiate a real time text conversation
-7. As a user, I can add any person I like to the friend list
+1. As a user, I can create an account and log in with email and password
+2. As a user, I can see my personal profile, and my account statistic
+3. As a user, I can view my expense and income history
+4. As a user, I can type to search the specific expense or income
+5. As a user, I can update any specific expense or income i want
+6. As a user, I can delete any specific expense or income i want
+7. As a user, I can see the graph visualize the proportion of my total expense and revenue
+
+## technology
+
+Express
+
+Mongoose
+
+React.js
+
+Javascript
+
+SCSS
+
+Bootstrap
+
+## Available API
+
+1. /signup
+2. /login
+3. /income
+4. /expense
+5. /income/:id
+6. /expense/:id 
+7. /userRevenue/:userid
+8. /userExpense/:userid
+9. /statistic/:userid
+10. /userExpense/search/:userid

@@ -47,8 +47,19 @@ export const create_statistic = async (request, response) => {
               },
             },
           ]);
-
-        const profit = revenueStats[0].totalRev - expensesStats[0].totalExp;
+        var profit= 0;
+        if(revenueStats.length===0&&expensesStats.length!==0)
+         {
+            profit = - expensesStats[0].totalExp;
+         }
+        else if (expensesStats.length===0&&revenueStats.length!==0)
+        {
+            profit = revenueStats[0].totalRev;
+        }
+        else
+        {
+            profit = revenueStats[0].totalRev - expensesStats[0].totalExp;
+        }
         response.json({ expensesStats, revenueStats, profit });
     }catch(error){
         setErrorResponse(error,response);

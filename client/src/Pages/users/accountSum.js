@@ -25,6 +25,9 @@ const AccountSum = () => {
           expenses={accountDetails?.expensesStats[0]?.totalExp}
         />
       </div>
+      <h4 className="mb-0">
+      Net Profit: {accountDetails?.profit}
+      </h4>
       <div className="row">
         <div className="col-12 col-md-6 mb-6">
           <div className="p-8 border-dark border border-bottom-0 rounded-2">
@@ -38,7 +41,7 @@ const AccountSum = () => {
                 Total Expenses:
               </span>
             </div>
-            {!appErr && !serverErr ? (
+            {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
               <h1 className="mb-4">
                 &nbsp; ${accountDetails?.expensesStats[0]?.totalExp}
               </h1>
@@ -49,7 +52,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Number of Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr ? (
+                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
                   <span>{accountDetails?.expensesStats[0]?.totalRecords}</span>
                 ) : (
                   <span>0</span>
@@ -60,7 +63,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Minimum Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr ? (
+                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
                   <span>${accountDetails?.expensesStats[0]?.minExp}</span>
                 ) : (
                   <span>0</span>
@@ -71,7 +74,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Maximum Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr ? (
+                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
                   <span>${accountDetails?.expensesStats[0]?.maxExp}</span>
                 ) : (
                   <span>0</span>
@@ -82,7 +85,7 @@ const AccountSum = () => {
             <h4 className="mb-0">
               <span>&nbsp; Average Transactions:</span>
               <span className="text-danger ms-1">
-                {!appErr && !serverErr ? (
+                {!appErr && !serverErr && accountDetails?.expensesStats.length!==0 ? (
                   <span>${accountDetails?.expensesStats[0]?.averageExp}</span>
                 ) : (
                   <span>0</span>
@@ -105,7 +108,7 @@ const AccountSum = () => {
                 Total Income:
               </span>
             </div>
-            {!appErr && !serverErr ? (
+            {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
               <h1 className="mb-4">
                 &nbsp; ${accountDetails?.revenueStats[0]?.totalRev}
               </h1>
@@ -115,7 +118,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Number of Transactions:</span>
-              {!appErr && !serverErr ? (
+              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
                 <span className="text-danger ms-1">
                   {accountDetails?.revenueStats[0]?.totalRecords}
                 </span>
@@ -126,7 +129,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Minimum Transactions:</span>
-              {!appErr && !serverErr ? (
+              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
                 <span className="text-danger ms-1">
                   ${accountDetails?.revenueStats[0]?.minRev}
                 </span>
@@ -137,7 +140,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Maximum Transactions:</span>
-              {!appErr && !serverErr ? (
+              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
                 <span className="text-danger ms-1">
                   ${accountDetails?.revenueStats[0]?.maxRev}
                 </span>
@@ -148,7 +151,7 @@ const AccountSum = () => {
 
             <h4 className="mb-0">
               <span>&nbsp; Average Transactions:</span>
-              {!appErr && !serverErr ? (
+              {!appErr && !serverErr && accountDetails?.revenueStats.length!==0 ? (
                 <span className="text-danger ms-1">
                   ${accountDetails?.revenueStats[0]?.averageRev}
                 </span>
