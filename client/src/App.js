@@ -12,6 +12,7 @@ import Profile from "./Pages/users/Profile";
 import EditExpense from './Pages/Expenses/EditExpense';
 import EditIncome from './Pages/income/EditIncome';
 import ExpenseSearch from "./Pages/Expenses/ExpensesSearch";
+import IncomeSearch from "./Pages/income/IncomesSearch";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path = "/userIncome" component = {IncomeList} />
         <Route exact path = "/edit-income" component = {EditIncome} />
         <Route exact path = "/expanse-search" component = {ExpenseSearch} />
+        <Route exact path = "/income-search" component = {IncomeSearch} />
       </Switch>
     </BrowserRouter>
   );

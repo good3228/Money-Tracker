@@ -113,7 +113,7 @@ async(payload,
         },
     };
     try {
-        const { data } = await axios.get("http://localhost:9000/userIncome/search/" + user_id + "?title=" + keyword, 
+        const { data } = await axios.get("http://localhost:9000/userRevenue/search/" + user_id + "?title=" + keyword, 
        payload,
         config
         );
@@ -165,7 +165,7 @@ const incomeSlices = createSlice({
         state.loading = true;
     });
     builder.addCase(resetIncCreated, (state, action) => {
-        state.isExpCreated = true;
+        state.isIncCreated = true;
     })
     builder.addCase(createIncAction.fulfilled, (state, action) => {
       state.loading = false;

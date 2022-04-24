@@ -14,8 +14,9 @@ $color-white: #fff;
     top: 100px;
 }
 .AddExpense {
-    height: 100vh;
+  height: 100vh;
   padding-top: 100px;
+  background-color: rgba(0,0,0,0.5);
   // background: linear-gradient(to right,#f4bcb8, rgb(197, 39, 18));
   display: flex;
   justify-content: center;

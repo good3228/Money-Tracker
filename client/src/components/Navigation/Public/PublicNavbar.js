@@ -31,7 +31,7 @@ const PublicNavbar = () => {
               <li class="nav-item hoverable">
                 <Link
                   to="/"
-                  class="btn  hoverable btn-outline-info me-2 home"
+                  class="btn hoverable btn-outline-info me-2 home"
                   aria-current="page"
                 >
                   Home

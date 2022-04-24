@@ -40,6 +40,7 @@ const { loading, appErr, serverErr, expenseCreated, isExpCreated } = state;
 useEffect(() => {
   if(isExpCreated) history.push("/userExpense");
 }, [isExpCreated, dispatch]);
+
   return (
     <>
       <div className="AddExpense">

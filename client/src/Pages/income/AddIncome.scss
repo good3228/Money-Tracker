@@ -10,10 +10,11 @@ $color-white: #fff;
 
 
 .AddIncome {
-    height: 100vh;
+  height: 100vh;
   padding-top: 100px;
- display: flex;
+  display: flex;
   justify-content: center;
+  background-color: rgba(0,0,0,0.5);
 
   p,
   input,
@@ -116,7 +117,7 @@ $color-white: #fff;
   button.btnAddIncome {
     display: block;
     width: 100%;
-    color: $color-red;
+    color: $color-shadow;
     font-size: 1.12rem;
   }
   .input-group {

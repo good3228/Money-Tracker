@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import{ useDispatch, useSelector } from "react-redux";
 import {useFormik} from "formik";
 import * as Yup from "yup";
-import moneySVG from "../../img/money.svg";
+import { useHistory } from "react-router-dom";
 import { createIncAction } from "../../redux/slices/incomes/incomesSlices";
 import './AddIncome.scss';
 import addIncomeImg from '../../img/logo.png';
 import bg from "../../img/addIncomeBg.jpg";
+import DisabledButton from "../../components/DisabledButton";
 
 const formSchema = Yup.object({
   title: Yup.string().required('title is required '),
@@ -16,6 +17,7 @@ const formSchema = Yup.object({
 
 
 const AddIncome = () => {
+    const history = useHistory();
     //dispatch events
     const dispatch = useDispatch();
 
@@ -31,6 +33,14 @@ const AddIncome = () => {
       },
       validationSchema: formSchema,
     });
+
+    const state = useSelector(state => state.incomes);
+    const { loading, appErr, serverErr, incomeCreated, isIncCreated } = state;    
+
+    // Redirect
+    useEffect(() => {
+      if(isIncCreated) history.push("/userIncome");
+    }, [isIncCreated, dispatch]);
 
   return (
     <>
@@ -81,9 +91,10 @@ const AddIncome = () => {
           <div className="text-light mb-3">
             {formik.touched.amount && formik.errors.amount}
           </div>
-          <button class="btnAddIncome" type="submit">
+          {loading ? (<DisabledButton />):
+          (<button class="btnAddIncome" type="submit">
             Add Income
-          </button>
+          </button>)}
 
           {/* <div class="segment">
             <button class="unit" type="button">

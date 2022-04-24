@@ -38,6 +38,9 @@ router.route('/statistic/:userid')
     .get(accountStatisticController.create_statistic)    
 
 router.route('/userExpense/search/:userid')
-    .get(expenseController.search_expense_record)  
+    .get(expenseController.search_expense_record)
+
+router.route('/userRevenue/search/:userid')
+    .get(revenueController.search_revenue_record)  
 
 export default router;

@@ -14,7 +14,7 @@ const PrivateNavbar = () => {
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
           <Link to="/" className="navbar-brand">
-            <img src={icon} className="icon" />{" "}
+            <img src={icon} className="icon hoverable" />{" "}
           </Link>
           <button
             class="navbar-toggler"
@@ -30,7 +30,7 @@ const PrivateNavbar = () => {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link to="/profile" className="btn  hoverable btn-outline-light me-2">
+                <Link to="/profile" className="btn hoverable btn-outline-light me-2">
                   Profile
                 </Link>
               </li>
