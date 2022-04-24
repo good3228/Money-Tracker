@@ -23,32 +23,25 @@ const AccountSum = () => {
 
   return (
     <>
-      {/* <div className="box">
-        <Graph
-          revenue={accountDetails?.revenueStats[0]?.totalRev}
-          expenses={accountDetails?.expensesStats[0]?.totalExp}
-        />
-      </div> */}
       <div className="row">
-        <div className="col-12 col-md-6 mb-6">
-          <div className="p-8 border-dark border border-bottom-0 rounded-2">
-            <div className="d-flex mb-6 align-items-start justify-content-between">
-              <span
+          <div className="col box">
+            <div className="">
+              {/* <span
                 className="d-inline-flex align-items-center justify-content-center bg-light-light rounded-2"
                 style={{ width: "40px", height: "40px" }}
-              ></span>
+              ></span> */}
               {/* Expenses Start */}
-              <span className="badge fs-2 text-danger">
-                Total Expenses:
-              </span>
+              <div className="badge fs-2 text-danger">
+                Total Expenses: 
+                {!appErr && !serverErr ? (
+                  <span className="mb-4">
+                    &nbsp;${accountDetails?.expensesStats[0]?.totalExp}
+                  </span>
+                ) : (
+                  <span className="mb-4"> $0</span>
+                )}
+                </div>
             </div>
-            {!appErr && !serverErr ? (
-              <h1 className="mb-4">
-                &nbsp; ${accountDetails?.expensesStats[0]?.totalExp}
-              </h1>
-            ) : (
-              <h1 className="mb-4">$0</h1>
-            )}
 
             <h4 className="mb-0">
               <span>&nbsp; Number of Transactions:</span>
@@ -93,87 +86,91 @@ const AccountSum = () => {
                 )}
               </span>
             </h4>
+            <br></br>
             <button
                 onClick={() => navigate(history, "userExpense", "")}
-                className="btn me-4 w-100 btn-outline-danger d-flex align-items-center justify-content-center"
+                className="btn w-100 btn-outline-danger d-flex align-items-center justify-content-center"
               >
                 <span>View Expenses History</span>
               </button>
-            <br></br>
-
           </div>
-        </div>
-        <div className="col-12 col-md-6 mb-6">
-          <div className="p-8 border-dark border border-bottom-0 rounded-2">
-            <div className="d-flex mb-6 align-items-start justify-content-between">
-              <span
+        
+
+
+        
+        <div className="col box">
+          <div className="">
+            {/* <div className=""> */}
+              {/* <span
                 className="d-inline-flex align-items-center justify-content-center bg-danger-light rounded-2"
                 style={{ width: "40px", height: "40px" }}
-              ></span>
+              ></span> */}
 
               {/* Income Start */}
-              <span className="badge fs-2 bg-primary-light text-primary">
+              <span className="badge fs-2 text-primary">
                 Total Income:
-              </span>
-            </div>
+              
+            
             {!appErr && !serverErr ? (
-              <h1 className="mb-4">
-                &nbsp; ${accountDetails?.revenueStats[0]?.totalRev}
-              </h1>
+              <span className="mb-4">
+                &nbsp;${accountDetails?.revenueStats[0]?.totalRev}
+              </span>
             ) : (
-              <h1 className="mb-4">0</h1>
+              <span className="mb-4">$0</span>
             )}
+            </span>
 
             <h4 className="mb-0">
               <span>&nbsp; Number of Transactions:</span>
               {!appErr && !serverErr ? (
-                <span className="text-danger ms-1">
+                <span className="text-primary ms-1">
                   {accountDetails?.revenueStats[0]?.totalRecords}
                 </span>
               ) : (
-                <span className="text-danger ms-1">0</span>
+                <span className="text-primary ms-1">0</span>
               )}
             </h4>
 
             <h4 className="mb-0">
               <span>&nbsp; Minimum Transactions:</span>
               {!appErr && !serverErr ? (
-                <span className="text-danger ms-1">
+                <span className="text-primary ms-1">
                   ${accountDetails?.revenueStats[0]?.minRev}
                 </span>
               ) : (
-                <span className="text-danger ms-1">0</span>
+                <span className="text-primary ms-1">0</span>
               )}
             </h4>
 
             <h4 className="mb-0">
               <span>&nbsp; Maximum Transactions:</span>
               {!appErr && !serverErr ? (
-                <span className="text-danger ms-1">
+                <span className="text-primary ms-1">
                   ${accountDetails?.revenueStats[0]?.maxRev}
                 </span>
               ) : (
-                <span className="text-danger ms-1">0</span>
+                <span className="text-primary ms-1">0</span>
               )}
             </h4>
 
             <h4 className="mb-0">
               <span>&nbsp; Average Transactions:</span>
               {!appErr && !serverErr ? (
-                <span className="text-danger ms-1">
+                <span className="text-primary ms-1">
                   ${accountDetails?.revenueStats[0]?.averageRev}
                 </span>
               ) : (
-                <span className="text-danger ms-1">0</span>
+                <span className="text-primary ms-1">$0</span>
               )}
             </h4>
+            <br></br>
             <button
                 onClick={() => navigate(history, "userIncome", "")}
                 className="btn w-100 btn-outline-primary d-flex align-items-center justify-content-center"
               >
                 <span>View Income History</span>
               </button>
-            <br></br>
+            
           </div>
         </div>
       </div>

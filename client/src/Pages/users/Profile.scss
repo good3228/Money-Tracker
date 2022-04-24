@@ -1,51 +1,22 @@
+.name{
+    font-weight: bold;
+}
 
-    div.infobox{
-        border: 2px solid black;
-    }
+img.ProfileBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5;
+}
 
-    div.info{
-        margin-right: 70px;
-    }
-
-    div.name{
-        font-weight: bold;
-    }
-    // div.email, div.joinDate{
-    //     font-size:1.2rem;
-    // }
-
-
-    img.profileBg{
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        height: 130vh;
-        width: 100vw;
-        opacity: 1;
-    }
-
-
-// section.py-5{
-//     div.info{
-//         border: 2px solid black;
-//     }
-//     div.name{
-//         font-size: 1.4rem;
-//         position: relative;
-//         left: 23px;  
-//     }
-//     div.email, div.joinDate{
-//         font-size:1.2rem;
-//     }
-// }
-
-//     img.profileBg{
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         z-index: -1;
-//         height: 130vh;
-//         width: 100vw;
-//         opacity: 1;
-//     }
+.infobox {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {useHistory} from "react-router-dom";
+import icon from "../../../img/nav_logo.png";
 import './PrivateNavbar.scss';
 
 const PrivateNavbar = () => {
@@ -13,7 +14,7 @@ const PrivateNavbar = () => {
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
           <Link to="/" className="navbar-brand">
-            <i class="bi bi-currency-exchange fs-1 text-warning "></i>
+            <img src={icon} className="icon" />{" "}
           </Link>
           <button
             class="navbar-toggler"
