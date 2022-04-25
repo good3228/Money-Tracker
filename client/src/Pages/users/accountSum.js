@@ -24,7 +24,7 @@ const AccountSum = () => {
   return (
     <>
       <div className="row">
-          <div className="col box">
+          <div className="col box b1">
             <div className="">
               {/* <span
                 className="d-inline-flex align-items-center justify-content-center bg-light-light rounded-2"
@@ -98,7 +98,7 @@ const AccountSum = () => {
 
 
         
-        <div className="col box">
+        <div className="col box b2">
           <div className="">
             {/* <div className=""> */}
               {/* <span

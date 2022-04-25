@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import ContentDetails from "../../components/IncomeContentDetails";
 import { fetchAllIncAction, searchIncAction } from "../../redux/slices/incomes/incomesSlices";
 import bg from "../../img/profileBg.jpg";
-import './IncomList.scss';
+import './IncomeList.scss';
 import { useHistory } from "react-router-dom";
 import navigate from "../../utils/nav";
 
@@ -22,12 +22,10 @@ const IncomeSearch = () => {
 
   const history = useHistory();
 
-  //get all expenses
+  //get all income
 
   const allIncomes = useSelector(state => state?.incomes);
   const{loading, appErr, serverErr, incomesList, keyword} = allIncomes;
-
-  // console.log(loading, appErr, serverErr, expensesList);
 
   const formik = useFormik({
     initialValues:{
@@ -35,59 +33,62 @@ const IncomeSearch = () => {
       },
       onSubmit: (values) => {
         dispatch(searchIncAction(values));
-        // console.log(values);
       },
     validationSchema: formSchema,
   }); 
 
   return (
     <>
-      <section className="py-6">
+      <section className="py-4">
         <img src={bg} className="ExpensesListBg"></img>
-        <div className="container-fluid">
-          <div className="position-relative border rounded-2">
+        <div className="container-fluid  text-center">
+          {/* <div className="position-relative border rounded-2">
             <a className="position-absolute top-0 end-0 mt-4 me-4" href="#"></a>
-            <div className="pt-8 px-8 mb-8">
-              <h6 className="mb-0 fs-3">Recent Income Records</h6>
-            </div>
+            <div className="pt-8 px-8 mb-8"> */}
+              <h3><strong>Recent Income Records</strong></h3>
+            {/* </div> */}
             <form onSubmit={formik.handleSubmit}>
               <input type="text"
                  value={formik.values.keyword}
                  onChange={formik.handleChange("keyword")}
                  onBlur={formik.handleBlur("keyword")}
-               placeholder="search title..."> 
+                 placeholder="search title..."
+                 className="py-1"
+                 > 
               </input>
-              <button type = "submit">search</button>
-              </form>
+              <button type = "submit"
+               className="btn-search bg-primary text-white">Search</button>
               <button type = "submit"
                 onClick={() => navigate(history, "userIncome", "")}
-              >To the Income History Page</button>
-            <table className="table border border-bottom">
+                className="btn-back btn btn-outline-primary my-3"
+              >Cancel Search</button>
+              </form>
+            <table className="table bg-white">
               <thead>
-                <tr className="table-active">
+                <tr className="table-active bg-primary">
                   <th scope="col">
-                    <button className="btn d-flex align-items-centerr text-uppercase">
-                      <small>Title</small>
+                    <button className="btn d-flex text-uppercase w-100 justify-content-center text-white">
+                      <b>Title</b>
                     </button>
                   </th>
                   <th scope="col">
-                    <button className="btn d-flex align-items-centerr text-uppercase">
-                      <small>Description</small>
+                    <button className="btn d-flex text-uppercase w-100 justify-content-center text-white">
+                      <b>Description</b>
                     </button>
                   </th>
                   <th scope="col">
-                    <button className="btn d-flex align-items-centerr text-uppercase">
-                      <small>Amount</small>
+                    <button className="btn d-flex text-uppercase w-100 justify-content-center text-white">
+                      <b>Amount</b>
                     </button>
                   </th>
                   <th scope="col">
-                    <button className="btn d-flex align-items-centerr text-uppercase">
-                      <small>Date</small>
+                    <button className="btn d-flex text-uppercase w-100 justify-content-center text-white">
+                      <b>Date</b>
                     </button>
                   </th>
                   <th scope="col">
-                    <button className="btn d-flex align-items-centerr text-uppercase">
-                      <small>Action</small>
+                    <button className="btn d-flex text-uppercase w-100 justify-content-center text-white">
+                      <b>Action</b>
                     </button>
                   </th>
                 </tr>
@@ -109,7 +110,7 @@ const IncomeSearch = () => {
               
             </table><div className="botLine"></div>
           </div>
-        </div>
+        {/* </div>
         <div
           style={{
             display: "flex",
@@ -117,7 +118,7 @@ const IncomeSearch = () => {
             justifyContent: "center",
             marginTop: "20px",
           }}
-        ></div>
+        ></div> */}
       </section>
     </>
   );

@@ -16,7 +16,7 @@ const Profile = () => {
 
   return (
     <>
-    <section className="py-5">
+    <section className="py-4">
       <img src={bg} className="ProfileBg"></img>
         <div className="container">
           <div className="row align-items-center infobox">

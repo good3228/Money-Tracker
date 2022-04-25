@@ -6,7 +6,7 @@ const ContentDetails = ({item}) => {
   const history = useHistory();
   return (
     <>
-      <tr className="align-middle text-dark">
+      <tr className="text-center align-middle text-dark">
         <th className="p-6" scope="row">
         {item?.title}
         </th>
@@ -21,7 +21,7 @@ const ContentDetails = ({item}) => {
                 revenue: item,
               }
             })}
-            className="badge bg-success-light text-success" 
+            className="btn badge bg-success-light text-success" 
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +39,7 @@ const ContentDetails = ({item}) => {
             </svg>
           </button>
         </td>
-        <td className="p-6">
+        {/* <td className="p-6"> */}
  
           {/* <button
             onClick={() => history.push({
@@ -65,7 +65,7 @@ const ContentDetails = ({item}) => {
               />
             </svg>
           </button> */}
-        </td>
+        {/* </td> */}
       </tr>
     </>
   );
