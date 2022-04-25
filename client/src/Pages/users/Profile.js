@@ -11,7 +11,9 @@ const Profile = () => {
   const history = useHistory();
 
   const users = useSelector((state) => state?.users);
+  const statistic = useSelector((state) => state.statistic);
   const { userLoading, userAppErr, userServerErr, userAuth } = users;
+  const { accountDetails, appErr, loading, serverErr } = statistic;
 
 
   return (
@@ -34,6 +36,16 @@ const Profile = () => {
                 </div>
                 <div className="text-secondary joinDate">
                   Joined Date: {dateFormatter(userAuth?.createdAt? (userAuth?.createdAt) : null)}
+                </div>
+                <div>
+                Net Profit:
+                {!appErr && !serverErr ? (
+                  <span className="mb-4">
+                    &nbsp;${accountDetails?.profit}
+                  </span>
+                ) : (
+                  <span className="mb-4"> $0</span>
+                )}
                 </div>
                 </div>
               <div className="col"><Pie></Pie></div>
