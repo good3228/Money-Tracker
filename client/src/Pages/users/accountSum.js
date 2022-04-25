@@ -160,7 +160,7 @@ const AccountSum = () => {
                   ${accountDetails?.revenueStats[0]?.averageRev}
                 </span>
               ) : (
-                <span className="text-primary ms-1">$0</span>
+                <span className="text-primary ms-1">0</span>
               )}
             </h4>
             <br></br>

@@ -15,11 +15,16 @@ const setSuccessResponse = (obj,response) => {
 
 //get the data from request body and save to database
 export const create_new_user = async (request,response) => {
-        const {email,password,fullname} = request?.body;
+        const {email} = request?.body;
+        const {password} = request?.body;
         const userExist = await userService.searchOne({email:email});
         if(userExist!==null)
         {
            setErrorResponse("User already exists!",response)
+        }
+        if(password.length <= 6)
+        {
+           setErrorResponse("Password length is too short!",response)
         }
         else
         {
