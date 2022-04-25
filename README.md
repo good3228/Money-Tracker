@@ -16,11 +16,9 @@ this app can also give a better visualization of users' total revenue and expens
 
 ## Run Our App
 
-git clone our repo to an IDE such as intelliJ
-
-Open the terminal, type "cd server" command and then "npm start" to start running the REST API
-
-Open another terminal, at the same time, type "cd client" and then "npm start" to start running our app
+1. `git clone` our repo to an IDE such as intelliJ
+2. Open the terminal, type `cd server` command and then `npm start` to start running the REST API
+3. Open another terminal, at the same time, type `cd client` and then `npm start` to start running our app
 
 ## User Stories
 
@@ -28,22 +26,17 @@ Open another terminal, at the same time, type "cd client" and then "npm start" t
 2. As a user, I can see my personal profile, and my account statistic
 3. As a user, I can view my expense and income history
 4. As a user, I can type to search the specific expense or income
-5. As a user, I can update any specific expense or income i want
-6. As a user, I can delete any specific expense or income i want
+5. As a user, I can update any specific expense or income I want
+6. As a user, I can delete any specific expense or income I want
 7. As a user, I can see the graph visualize the proportion of my total expense and revenue
 
 ## technology
 
 Express
-
 Mongoose
-
 React.js
-
 Javascript
-
 SCSS
-
 Bootstrap
 
 ## Available API
@@ -58,3 +51,4 @@ Bootstrap
 8. /userExpense/:userid
 9. /statistic/:userid
 10. /userExpense/search/:userid
+11. /userRevenue/search/:userid
