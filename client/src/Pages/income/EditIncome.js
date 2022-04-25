@@ -99,7 +99,7 @@ const EditIncome = ({location: {
                   />
                 </label>
                 {/* Err */}
-                <div className="text-danger mb-3">
+                <div className="text-light mb-4 text-center">
                   {formik.touched.title && formik.errors.title}
                 </div>
                 <label>
@@ -113,7 +113,7 @@ const EditIncome = ({location: {
                   />
                 </label>
                 {/* Err */}
-                <div className="text-danger mb-3">
+                <div className="text-light mb-4 text-center">
                 {formik.touched.description && formik.errors.description}
                 </div>
                 <label>
@@ -127,7 +127,7 @@ const EditIncome = ({location: {
                   />
                 </label>
                 {/* Err */}
-                <div className="text-danger mb-3">
+                <div className="text-light mb-4 text-center">
                 {formik.touched.amount && formik.errors.amount}
                 </div>
                 {loading ? (

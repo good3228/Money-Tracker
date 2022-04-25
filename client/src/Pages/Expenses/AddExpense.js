@@ -60,7 +60,7 @@ useEffect(() => {
               placeholder="Enter Title"
             />
           </label>
-          <div className="text-light mb-3">
+          <div className="text-light mb-4 text-center">
             {formik.touched.title && formik.errors.title}
           </div>
           <label>
@@ -73,7 +73,7 @@ useEffect(() => {
               placeholder="Enter Description"
             />
           </label>
-          <div className="text-light mb-3">
+          <div className="text-light mb-4 text-center">
             {/* Err */}
             {formik.touched.description && formik.errors.description}
           </div>
@@ -87,11 +87,11 @@ useEffect(() => {
               placeholder="Enter Amount"
             />
           </label>
-          <div className="text-light mb-3">
+          <div className="text-light mb-4 text-center">
             {formik.touched.amount && formik.errors.amount}
           </div>
           {loading ? (<DisabledButton />):
-          (<button class="btnAddIncome" type="submit">
+          (<button class="btnAddExpense" type="submit">
           Add Expense
         </button>)}
 

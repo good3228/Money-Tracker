@@ -120,7 +120,7 @@ $color-white: #fff;
 
 
   }
-  button.btnAddIncome {
+  button.btnAddExpense {
     display: block;
     width: 100%;
     color: $color-red;
@@ -155,4 +155,8 @@ img.AddExpenseBg, img.AddIncomeBg{
   margin-right: 50px;
   margin-top: 360px;
   height: 50px
+}
+
+.form-control {
+  text-align: center;
 }

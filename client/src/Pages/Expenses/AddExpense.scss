@@ -120,7 +120,7 @@ $color-white: #fff;
 
 
   }
-  button.btnAddIncome {
+  button.btnAddExpense {
     display: block;
     width: 100%;
     color: $color-red;
@@ -145,4 +145,14 @@ img.AddExpenseBg, img.AddIncomeBg{
   z-index: -1;
   height: 120vh;
   width: 100vw;
+}
+
+.addbox {
+  background-color: rgba(255,255,255,0.5);
+  height: 630px;
+  margin-top: -50px;
+  padding-right:70px;
+  padding-left: 70px;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 45px 5px rgba(0, 0, 0, 0.3);
 }

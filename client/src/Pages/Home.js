@@ -12,10 +12,10 @@ const Home = () => {
           <div className="logo_description">
             <img className="logo" src={logo} />
             <div>
-              <h1>Money Saver</h1>
+              <h1><strong>Money Saver</strong></h1>
               <p>Become more aware of how you’re spending</p>
               <p>Improve your money management</p>
-              <p>Plays a crucial role in calculating your profitability</p>
+              <p className="pb-5">Plays a crucial role in calculating your profitability</p>
             </div>
           </div>
         </div>

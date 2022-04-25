@@ -37,7 +37,9 @@ const Profile = () => {
                 <div className="text-secondary joinDate">
                   Joined Date: {dateFormatter(userAuth?.createdAt? (userAuth?.createdAt) : null)}
                 </div>
-                <div>
+                <br></br>
+                <h2
+                 className="text-success"><b>
                 Net Profit:
                 {!appErr && !serverErr ? (
                   <span className="mb-4">
@@ -46,7 +48,7 @@ const Profile = () => {
                 ) : (
                   <span className="mb-4"> $0</span>
                 )}
-                </div>
+                </b></h2>
                 </div>
               <div className="col"><Pie></Pie></div>
           </div>

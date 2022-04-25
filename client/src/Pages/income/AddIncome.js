@@ -61,7 +61,7 @@ const AddIncome = () => {
               placeholder="Enter Title"
             />
           </label>
-          <div className="text-light mb-3">
+          <div className="text-light mb-4 text-center">
             {formik.touched.title && formik.errors.title}
           </div>
           <label>
@@ -74,7 +74,7 @@ const AddIncome = () => {
               placeholder="Enter Description"
             />
           </label>
-          <div className="text-light mb-3">
+          <div className="text-light mb-4 text-center">
             {/* Err */}
             {formik.touched.description && formik.errors.description}
           </div>
@@ -88,7 +88,7 @@ const AddIncome = () => {
               placeholder="Enter Amount"
             />
           </label>
-          <div className="text-light mb-3">
+          <div className="text-light mb-4 text-center">
             {formik.touched.amount && formik.errors.amount}
           </div>
           {loading ? (<DisabledButton />):

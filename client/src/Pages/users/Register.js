@@ -59,7 +59,7 @@ const Register = () => {
                 )} */}
                 {/* Display Err */}
                 {userAppErr || userServerErr ? (
-                  <div className="text-danger text-center mb-3">
+                  <div className="text-danger text-center mb-4">
                     {"Email exists" || "userServerErr"}
                   </div>
                 ) : null}
@@ -72,7 +72,7 @@ const Register = () => {
                   className="fullname"
                 />
                 {/* Err */}
-                <div className="text-danger text-center mb-3">
+                <div className="text-danger text-center mb-4">
                   {formik.touched.fullname && formik.errors.fullname}
                 </div>
                 <input
@@ -84,7 +84,7 @@ const Register = () => {
                   className="un"
                 />
                 {/* Err */}
-                <div className="text-danger text-center mb-3">
+                <div className="text-danger text-center mb-4">
                   {formik.touched.email && formik.errors.email}
                 </div>
                 <input

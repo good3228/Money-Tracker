@@ -68,7 +68,7 @@ const Login = () => {
                   placeholder="Email"
                 />
                 {/* Err */}
-                <div className="text-danger mb-3 text-center">
+                <div className="text-danger mb-4 text-center">
                   {formik.touched.email && formik.errors.email}
                 </div>
                 <input
@@ -80,7 +80,7 @@ const Login = () => {
                   className="pass"
                 />
                 {/* Err */}
-                <div className="text-danger text-center mb-3">
+                <div className="text-danger text-center mb-4">
                   {formik.touched.password && formik.errors.password}
                 </div>
                 <div>
