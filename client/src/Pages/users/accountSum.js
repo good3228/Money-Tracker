@@ -55,7 +55,7 @@ const AccountSum = () => {
             </h4>
 
             <h4 className="mb-0">
-              <span>&nbsp; Minimum Transactions:</span>
+              <span>&nbsp; Min Expense:</span>
               <span className="text-danger ms-1">
                 {!appErr && !serverErr ? (
                   <span>${accountDetails?.expensesStats[0]?.minExp}</span>
@@ -66,7 +66,7 @@ const AccountSum = () => {
             </h4>
 
             <h4 className="mb-0">
-              <span>&nbsp; Maximum Transactions:</span>
+              <span>&nbsp; Max Expense:</span>
               <span className="text-danger ms-1">
                 {!appErr && !serverErr ? (
                   <span>${accountDetails?.expensesStats[0]?.maxExp}</span>
@@ -77,7 +77,7 @@ const AccountSum = () => {
             </h4>
 
             <h4 className="mb-0">
-              <span>&nbsp; Average Transactions:</span>
+              <span>&nbsp; Avg Expense:</span>
               <span className="text-danger ms-1">
                 {!appErr && !serverErr ? (
                   <span>${accountDetails?.expensesStats[0]?.averageExp}</span>
@@ -132,7 +132,7 @@ const AccountSum = () => {
             </h4>
 
             <h4 className="mb-0">
-              <span>&nbsp; Minimum Transactions:</span>
+              <span>&nbsp; Min Revenue:</span>
               {!appErr && !serverErr ? (
                 <span className="text-primary ms-1">
                   ${accountDetails?.revenueStats[0]?.minRev}
@@ -143,7 +143,7 @@ const AccountSum = () => {
             </h4>
 
             <h4 className="mb-0">
-              <span>&nbsp; Maximum Transactions:</span>
+              <span>&nbsp; Max Revenue:</span>
               {!appErr && !serverErr ? (
                 <span className="text-primary ms-1">
                   ${accountDetails?.revenueStats[0]?.maxRev}
@@ -154,7 +154,7 @@ const AccountSum = () => {
             </h4>
 
             <h4 className="mb-0">
-              <span>&nbsp; Average Transactions:</span>
+              <span>&nbsp; Avg Revenue:</span>
               {!appErr && !serverErr ? (
                 <span className="text-primary ms-1">
                   ${accountDetails?.revenueStats[0]?.averageRev}
