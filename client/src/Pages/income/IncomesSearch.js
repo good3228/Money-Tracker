@@ -17,7 +17,7 @@ const formSchema = Yup.object({
 const IncomeSearch = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(searchIncAction(1));
+    dispatch(searchIncAction());
   },[dispatch]);
 
   const history = useHistory();

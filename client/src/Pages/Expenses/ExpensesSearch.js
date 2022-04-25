@@ -17,7 +17,7 @@ const formSchema = Yup.object({
 const ExpenseSearch = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(searchExpAction(1));
+    dispatch(searchExpAction());
   },[dispatch]);
 
   const history = useHistory();
