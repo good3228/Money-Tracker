@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import moneySVG from "../../img/money.svg";
 import {useFormik} from "formik";
 import{ useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";

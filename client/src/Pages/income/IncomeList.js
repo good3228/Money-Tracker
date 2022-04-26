@@ -14,6 +14,8 @@ const formSchema = Yup.object({
   keyword: Yup.string().required('keyword is required '),
 });
 
+
+//  fetch all data
 const IncomeList = () => {
   const history = useHistory();
   const dispatch = useDispatch();

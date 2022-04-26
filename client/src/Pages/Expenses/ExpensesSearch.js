@@ -14,6 +14,7 @@ const formSchema = Yup.object({
   keyword: Yup.string().required('keyword is required '),
 });
 
+//  setting null when into search page
 const ExpenseSearch = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,6 +30,7 @@ const ExpenseSearch = () => {
 
   // console.log(loading, appErr, serverErr, expensesList);
 
+  //  get search data
   const formik = useFormik({
     initialValues:{
         keyword: ""

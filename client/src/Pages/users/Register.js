@@ -53,10 +53,6 @@ const Register = () => {
                 Register
               </p>
               <form onSubmit={formik.handleSubmit}>
-                {/* Success msg */}
-                {/* {registered && (
-                  <SuccessMessage msg="Register Successfully. You will be redirected soon" />
-                )} */}
                 {/* Display Err */}
                 {userAppErr || userServerErr ? (
                   <div className="text-danger text-center mb-4">

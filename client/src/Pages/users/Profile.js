@@ -30,16 +30,20 @@ const Profile = () => {
                 />
               </div>
               <div className="col info">
+                {/* get user fullname */}
                 <h3 className="name">{userAuth?.fullname}</h3>
                 <div className="text-secondary mail">
+                  {/* get user email */}
                   {userAuth?.email}
                 </div>
                 <div className="text-secondary joinDate">
+                  {/* get user createdAt */}
                   Joined Date: {dateFormatter(userAuth?.createdAt? (userAuth?.createdAt) : null)}
                 </div>
                 <br></br>
                 <h2
                  className="text-success"><b>
+                   {/* get user all income - all expenses */}
                 Net Profit:
                 {!appErr && !serverErr ? (
                   <span className="mb-4">

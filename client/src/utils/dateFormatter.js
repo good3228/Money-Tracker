@@ -1,3 +1,4 @@
+//  format the date
 const dateFormatter = date => {
     let d = new Date(date);
     let year = new Intl.DateTimeFormat('en', { year: "numeric"}).format(d);

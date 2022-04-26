@@ -2,6 +2,8 @@ import React from "react";
 import { useHistory} from 'react-router-dom';
 import dateFormatter from "../utils/dateFormatter";
 
+
+//  fetch the income data in map
 const ContentDetails = ({item}) => {
   const history = useHistory();
   return (
